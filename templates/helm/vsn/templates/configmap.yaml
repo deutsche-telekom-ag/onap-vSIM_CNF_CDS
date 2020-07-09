@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.vsn_name_0 }}-configmap
+  labels:
+    vnf-name: {{ .Values.vnf_name }}
+    vf-module-name: {{ .Values.vsn_name_0 }}
+    release: {{ .Release.Name }}
+    chart: {{ .Chart.Name }}
+data:
+  protected_net_gw: {{ .Values.int_private2_gw_ip | quote }}
+  protected_private_net_cidr: {{ .Values.int_private1_net_cidr | quote }}

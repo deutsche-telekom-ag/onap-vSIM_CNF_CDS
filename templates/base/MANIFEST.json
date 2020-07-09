@@ -1,0 +1,70 @@
+{
+    "name": "virtualFirewall",
+    "description": "",
+    "data": [
+        {
+            "file": "CBA.zip",
+            "type": "CONTROLLER_BLUEPRINT_ARCHIVE"
+        },
+        {
+            "file": "base_template.yaml",
+            "type": "HEAT",
+            "isBase": "true",
+            "data": [
+                {
+                    "file": "base_template.env",
+                    "type": "HEAT_ENV"
+                }
+            ]
+        },
+        {
+            "file": "base_template_cloudtech_k8s_charts.tgz",
+            "type": "CLOUD_TECHNOLOGY_SPECIFIC_ARTIFACT"
+        },
+        {
+            "file": "vfw.yaml",
+            "type": "HEAT",
+            "isBase": "false",
+            "data": [
+                {
+                    "file": "vfw.env",
+                    "type": "HEAT_ENV"
+                }
+            ]
+        },
+        {
+            "file": "vfw_cloudtech_k8s_charts.tgz",
+            "type": "CLOUD_TECHNOLOGY_SPECIFIC_ARTIFACT"
+        },
+        {
+            "file": "vpkg.yaml",
+            "type": "HEAT",
+            "isBase": "false",
+            "data": [
+                {
+                    "file": "vpkg.env",
+                    "type": "HEAT_ENV"
+                }
+            ]
+        },
+        {
+            "file": "vpkg_cloudtech_k8s_charts.tgz",
+            "type": "CLOUD_TECHNOLOGY_SPECIFIC_ARTIFACT"
+        },
+        {
+            "file": "vsn.yaml",
+            "type": "HEAT",
+            "isBase": "false",
+            "data": [
+                {
+                    "file": "vsn.env",
+                    "type": "HEAT_ENV"
+                }
+            ]
+        },
+        {
+            "file": "vsn_cloudtech_k8s_charts.tgz",
+            "type": "CLOUD_TECHNOLOGY_SPECIFIC_ARTIFACT"
+        }
+    ]
+}

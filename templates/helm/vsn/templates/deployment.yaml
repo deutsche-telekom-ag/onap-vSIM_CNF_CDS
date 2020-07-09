@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.vsn_name_0 }}
+  labels:
+    vnf-name: {{ .Values.vnf_name }}
+    vf-module-name: {{ .Values.vsn_name_0 }}
+    release: {{ .Release.Name }}
+    chart: {{ .Chart.Name }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      vnf-name: {{ .Values.vnf_name }}
+      vf-module-name: {{ .Values.vsn_name_0 }}
+  template:
+    metadata:
+      labels:
+        vnf-name: {{ .Values.vnf_name }}
+        vf-module-name: {{ .Values.vsn_name_0 }}
+        release: {{ .Release.Name }}
+        chart: {{ .Chart.Name }}
+      annotations:
+        k8s.v1.cni.cncf.io/networks: "{{ .Values.net_attachment_definition }}"
+        k8s.plugin.opnfv.org/nfn-network: |
+            { "type": "ovn4nfv",
+              "interface": [
+                { "name": {{ .Values.int_private2_net_id | quote }},
+                  "ipAddress": {{ .Values.vsn_int_private2_ip_0 | quote }},
+                  "interface": "eth1",
+                  "defaultGateway": "false" },
+                { "name": {{ .Values.onap_private_net_id | quote }},
+                  "ipAddress": {{ .Values.vsn_onap_private_ip_0 | quote }},
+                  "interface": "eth2" ,
+                  "defaultGateway": "false" }
+              ]
+            }
+    spec:
+      containers:
+      - name: {{ .Chart.Name }}
+        image: "{{ .Values.image.sinkrepo }}:{{ .Values.image.sinktag }}"
+        envFrom:
+        - configMapRef:
+            name: {{ .Values.vsn_name_0 }}-configmap
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        tty: true
+        stdin: true
+        securityContext:
+          privileged: true
+      - name: darkstat
+        image: "{{ .Values.image.darkstatrepo }}:{{ .Values.image.darkstattag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        tty: true
+        stdin: true
+        ports:
+          - containerPort: {{ .Values.service.ports.port }}

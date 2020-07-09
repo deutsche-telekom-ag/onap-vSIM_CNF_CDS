@@ -1,0 +1,4170 @@
+{
+	"info": {
+		"_postman_id": "ab752443-17d9-419a-85e9-42da71d0288f",
+		"name": "vFW_CNF_CDS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Initial ONAP setup (AAI)",
+			"item": [
+				{
+					"name": "Create",
+					"item": [
+						{
+							"name": "1. Create Customer",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e884f124-fb26-4ef0-aacd-3eb847a986fd",
+										"exec": [
+											"pm.test(\"Successful PUT request\", function () {",
+											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "AAI",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "AAI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "X-TransactionId",
+										"value": "{{$randomUUID}}"
+									},
+									{
+										"key": "X-FromAppId",
+										"value": "jimmy-postman"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"global-customer-id\": \"Demonstration\",\n    \"subscriber-name\": \"Demonstration\",\n    \"subscriber-type\": \"INFRA\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "https://{{k8s}}:30233/aai/v16/business/customers/customer/Demonstration",
+									"protocol": "https",
+									"host": [
+										"{{k8s}}"
+									],
+									"port": "30233",
+									"path": [
+										"aai",
+										"v16",
+										"business",
+										"customers",
+										"customer",
+										"Demonstration"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2. Create Owning Entity",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "c616490d-5efc-4133-a01d-2cc9bd579f8b",
+										"exec": [
+											"pm.test(\"Successful PUT request\", function () {",
+											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "AAI",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "AAI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "X-TransactionId",
+										"value": "{{$randomUUID}}"
+									},
+									{
+										"key": "X-FromAppId",
+										"value": "jimmy-postman"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"owning-entity-id\": \"67f2e84c-734d-4e90-a1e4-d2ffa2e75849\",\n\t\"owning-entity-name\": \"OE-Demonstration\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "https://{{k8s}}:30233/aai/v16/business/owning-entities/owning-entity/67f2e84c-734d-4e90-a1e4-d2ffa2e75849",
+									"protocol": "https",
+									"host": [
+										"{{k8s}}"
+									],
+									"port": "30233",
+									"path": [
+										"aai",
+										"v16",
+										"business",
+										"owning-entities",
+										"owning-entity",
+										"67f2e84c-734d-4e90-a1e4-d2ffa2e75849"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3. Create Platform",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e8dc60f2-e472-4b91-aa2d-95e62d39838e",
+										"exec": [
+											"pm.test(\"Successful PUT request\", function () {",
+											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "AAI",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "AAI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "X-TransactionId",
+										"value": "{{$randomUUID}}"
+									},
+									{
+										"key": "X-FromAppId",
+										"value": "jimmy-postman"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"platform-name\": \"test\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "https://{{k8s}}:30233/aai/v16/business/platforms/platform/test",
+									"protocol": "https",
+									"host": [
+										"{{k8s}}"
+									],
+									"port": "30233",
+									"path": [
+										"aai",
+										"v16",
+										"business",
+										"platforms",
+										"platform",
+										"test"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "4. Create Project",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a5e48db1-2e55-46aa-8018-df0f8defe90f",
+										"exec": [
+											"pm.test(\"Successful PUT request\", function () {",
+											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "AAI",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "AAI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "X-TransactionId",
+										"value": "{{$randomUUID}}"
+									},
+									{
+										"key": "X-FromAppId",
+										"value": "jimmy-postman"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"project-name\": \"Project-Demonstration\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "https://{{k8s}}:30233/aai/v16/business/projects/project/Project-Demonstration",
+									"protocol": "https",
+									"host": [
+										"{{k8s}}"
+									],
+									"port": "30233",
+									"path": [
+										"aai",
+										"v16",
+										"business",
+										"projects",
+										"project",
+										"Project-Demonstration"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "5. Create Line of Business",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "042c22bf-7b3f-42be-8976-d9e6ce720ceb",
+										"exec": [
+											"pm.test(\"Successful PUT request\", function () {",
+											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "AAI",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "AAI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "X-TransactionId",
+										"value": "{{$randomUUID}}"
+									},
+									{
+										"key": "X-FromAppId",
+										"value": "jimmy-postman"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"line-of-business-name\": \"LOB-Demonstration\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "https://{{k8s}}:30233/aai/v16/business/lines-of-business/line-of-business/LOB-Demonstration",
+									"protocol": "https",
+									"host": [
+										"{{k8s}}"
+									],
+									"port": "30233",
+									"path": [
+										"aai",
+										"v16",
+										"business",
+										"lines-of-business",
+										"line-of-business",
+										"LOB-Demonstration"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "b94aa07d-051e-450c-9b1c-0cc63a21e761",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "9a6d9375-7c97-488d-bb95-0404d1518e40",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Check",
+					"item": [
+						{
+							"name": "List Customers",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "8412434b-2a9e-40b7-94c6-92a76bcba616",
+										"exec": [
+											"pm.test(\"Successful GET request\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check if required AAI entry is defined\", function () {\r",
+											"    resp = pm.response.json();\r",
+											"    entry = _.find(resp[\"customer\"], { \"global-customer-id\": \"Demonstration\" });\r",
+											"    pm.expect(entry).not.to.be.undefined;\r",
+											"    pm.expect(entry[\"subscriber-name\"]).to.eql(\"Demonstration\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "AAI",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "AAI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-TransactionId",
+										"value": "{{$randomUUID}}"
+									},
+									{
+										"key": "X-FromAppId",
+										"value": "jimmy-postman"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "https://{{k8s}}:30233/aai/v16/business/customers/",
+									"protocol": "https",
+									"host": [
+										"{{k8s}}"
+									],
+									"port": "30233",
+									"path": [
+										"aai",
+										"v16",
+										"business",
+										"customers",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "List Customers",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-TransactionId",
+												"value": "{{$randomUUID}}"
+											},
+											{
+												"key": "X-FromAppId",
+												"value": "jimmy-postman"
+											},
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "https://{{k8s}}:30233/aai/v16/business/customers/",
+											"protocol": "https",
+											"host": [
+												"{{k8s}}"
+											],
+											"port": "30233",
+											"path": [
+												"aai",
+												"v16",
+												"business",
+												"customers",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Tue, 11 Feb 2020 08:02:21 GMT"
+										},
+										{
+											"key": "vertex-id",
+											"value": "192552"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-AAI-TXID",
+											"value": "1-aai-resources-200211-08:02:21:737-76571"
+										},
+										{
+											"key": "Content-Length",
+											"value": "148"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=16000000; includeSubDomains; preload;"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"customer\": [\n        {\n            \"global-customer-id\": \"Demonstration\",\n            \"subscriber-name\": \"Demonstration\",\n            \"subscriber-type\": \"INFRA\",\n            \"resource-version\": \"1581408131911\"\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "List Owning Entities",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "fc2a0393-72e9-40f8-8f23-f95a4a21e918",
+										"exec": [
+											"pm.test(\"Successful GET request\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check if required AAI entry is defined\", function () {\r",
+											"    resp = pm.response.json();\r",
+											"    entry = _.find(resp[\"owning-entity\"], { \"owning-entity-name\": \"OE-Demonstration\" });\r",
+											"    pm.expect(entry).not.to.be.undefined;\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "AAI",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "AAI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-TransactionId",
+										"value": "{{$randomUUID}}"
+									},
+									{
+										"key": "X-FromAppId",
+										"value": "jimmy-postman"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "https://{{k8s}}:30233/aai/v16/business/owning-entities",
+									"protocol": "https",
+									"host": [
+										"{{k8s}}"
+									],
+									"port": "30233",
+									"path": [
+										"aai",
+										"v16",
+										"business",
+										"owning-entities"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "List Owning Entities",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-TransactionId",
+												"value": "{{$randomUUID}}"
+											},
+											{
+												"key": "X-FromAppId",
+												"value": "jimmy-postman"
+											},
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "https://{{k8s}}:30233/aai/v16/business/owning-entities",
+											"protocol": "https",
+											"host": [
+												"{{k8s}}"
+											],
+											"port": "30233",
+											"path": [
+												"aai",
+												"v16",
+												"business",
+												"owning-entities"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Tue, 11 Feb 2020 07:55:27 GMT"
+										},
+										{
+											"key": "vertex-id",
+											"value": "180408"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-AAI-TXID",
+											"value": "2-aai-resources-200211-07:55:27:894-22251"
+										},
+										{
+											"key": "Content-Length",
+											"value": "154"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=16000000; includeSubDomains; preload;"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"owning-entity\": [\n        {\n            \"owning-entity-id\": \"67f2e84c-734d-4e90-a1e4-d2ffa2e75849\",\n            \"owning-entity-name\": \"OE-Demonstration\",\n            \"resource-version\": \"1581407723181\"\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "List Platforms",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "293dba49-3f5e-462c-97d1-c81c6e5b77ca",
+										"exec": [
+											"pm.test(\"Successful GET request\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check if required AAI entry is defined\", function () {\r",
+											"    resp = pm.response.json();\r",
+											"    entry = _.find(resp[\"platform\"], { \"platform-name\": \"test\" });\r",
+											"    pm.expect(entry).not.to.be.undefined;\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "AAI",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "AAI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-TransactionId",
+										"value": "{{$randomUUID}}"
+									},
+									{
+										"key": "X-FromAppId",
+										"value": "jimmy-postman"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "https://{{k8s}}:30233/aai/v16/business/platforms",
+									"protocol": "https",
+									"host": [
+										"{{k8s}}"
+									],
+									"port": "30233",
+									"path": [
+										"aai",
+										"v16",
+										"business",
+										"platforms"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "List Platforms",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-TransactionId",
+												"value": "{{$randomUUID}}"
+											},
+											{
+												"key": "X-FromAppId",
+												"value": "jimmy-postman"
+											},
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "https://{{k8s}}:30233/aai/v16/business/platforms",
+											"protocol": "https",
+											"host": [
+												"{{k8s}}"
+											],
+											"port": "30233",
+											"path": [
+												"aai",
+												"v16",
+												"business",
+												"platforms"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Tue, 11 Feb 2020 07:55:38 GMT"
+										},
+										{
+											"key": "vertex-id",
+											"value": "311296"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-AAI-TXID",
+											"value": "0-aai-resources-200211-07:55:38:729-19964"
+										},
+										{
+											"key": "Content-Length",
+											"value": "74"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=16000000; includeSubDomains; preload;"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"platform\": [\n        {\n            \"platform-name\": \"test\",\n            \"resource-version\": \"1581407734862\"\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "List Projects",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "2c088bc8-642b-4eec-b393-a0678027eb9b",
+										"exec": [
+											"pm.test(\"Successful GET request\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check if required AAI entry is defined\", function () {\r",
+											"    resp = pm.response.json();\r",
+											"    entry = _.find(resp[\"project\"], { \"project-name\": \"Project-Demonstration\" });\r",
+											"    pm.expect(entry).not.to.be.undefined;\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "AAI",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "AAI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-TransactionId",
+										"value": "{{$randomUUID}}"
+									},
+									{
+										"key": "X-FromAppId",
+										"value": "jimmy-postman"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "https://{{k8s}}:30233/aai/v16/business/projects",
+									"protocol": "https",
+									"host": [
+										"{{k8s}}"
+									],
+									"port": "30233",
+									"path": [
+										"aai",
+										"v16",
+										"business",
+										"projects"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "List Projects",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-TransactionId",
+												"value": "{{$randomUUID}}"
+											},
+											{
+												"key": "X-FromAppId",
+												"value": "jimmy-postman"
+											},
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "https://{{k8s}}:30233/aai/v16/business/projects",
+											"protocol": "https",
+											"host": [
+												"{{k8s}}"
+											],
+											"port": "30233",
+											"path": [
+												"aai",
+												"v16",
+												"business",
+												"projects"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Tue, 11 Feb 2020 07:57:02 GMT"
+										},
+										{
+											"key": "vertex-id",
+											"value": "172248"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-AAI-TXID",
+											"value": "1-aai-resources-200211-07:57:02:186-8853"
+										},
+										{
+											"key": "Content-Length",
+											"value": "89"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=16000000; includeSubDomains; preload;"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"project\": [\n        {\n            \"project-name\": \"Project-Demonstration\",\n            \"resource-version\": \"1581407743015\"\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "List Lines of Business",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "6ec8378c-d4f1-43b8-a3c8-65b46673ebdd",
+										"exec": [
+											"pm.test(\"Successful GET request\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check if required AAI entry is defined\", function () {\r",
+											"    resp = pm.response.json();\r",
+											"    entry = _.find(resp[\"line-of-business\"], { \"line-of-business-name\": \"LOB-Demonstration\" });\r",
+											"    pm.expect(entry).not.to.be.undefined;\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "AAI",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "AAI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-TransactionId",
+										"value": "{{$randomUUID}}"
+									},
+									{
+										"key": "X-FromAppId",
+										"value": "jimmy-postman"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "https://{{k8s}}:30233/aai/v16/business/lines-of-business",
+									"protocol": "https",
+									"host": [
+										"{{k8s}}"
+									],
+									"port": "30233",
+									"path": [
+										"aai",
+										"v16",
+										"business",
+										"lines-of-business"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"description": "Actions in this folder relate to steps done by `robot init_customer` excluding cloud registration part. If you already did `robot init_customer`, you don't need to proceed with these calls.",
+			"auth": {
+				"type": "basic",
+				"basic": [
+					{
+						"key": "password",
+						"value": "AAI",
+						"type": "string"
+					},
+					{
+						"key": "username",
+						"value": "AAI",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "c0f8bf0a-ad87-4156-b159-19bbf03bb907",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "f2fd9779-4cd9-46b5-a2ac-7807ac4819ca",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "K8s Cloud region registration (AAI/Multicloud)",
+			"item": [
+				{
+					"name": "Create",
+					"item": [
+						{
+							"name": "1. [AAI] Create Complex",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "c7f53387-5639-41c3-939b-619b9bb98984",
+										"exec": [
+											"pm.test(\"Successful PUT request\", function () {",
+											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "AAI",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "AAI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "X-TransactionId",
+										"value": "{{$randomUUID}}"
+									},
+									{
+										"key": "X-FromAppId",
+										"value": "jimmy-postman"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"physical-location-id\": \"clli2\",\n    \"physical-location-type\": \"office\",\n    \"street1\": \"Dummy 1\",\n    \"city\": \"Kraków\",\n    \"postal-code\": \"30-000\",\n    \"country\": \"Poland\",\n    \"region\": \"Smaller Poland\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "https://{{k8s}}:30233/aai/v16/cloud-infrastructure/complexes/complex/clli2",
+									"protocol": "https",
+									"host": [
+										"{{k8s}}"
+									],
+									"port": "30233",
+									"path": [
+										"aai",
+										"v16",
+										"cloud-infrastructure",
+										"complexes",
+										"complex",
+										"clli2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2. [AAI] Create Cloud Region",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "caf5a0e6-6c35-4b9c-9a86-da9fb255b208",
+										"exec": [
+											"pm.test(\"Successful PUT request\", function () {",
+											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "AAI",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "AAI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "X-TransactionId",
+										"value": "{{$randomUUID}}"
+									},
+									{
+										"key": "X-FromAppId",
+										"value": "jimmy-postman"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"cloud-owner\": \"k8scloudowner4\",\n    \"cloud-region-id\": \"k8sregionfour\",\n    \"cloud-type\": \"k8s\",\n    \"owner-defined-type\": \"t1\",\n    \"cloud-region-version\": \"1.0\",\n    \"complex-name\": \"clli2\",\n    \"cloud-zone\": \"CloudZone\",\n    \"sriov-automation\": false\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "https://{{k8s}}:30233/aai/v16/cloud-infrastructure/cloud-regions/cloud-region/k8scloudowner4/k8sregionfour",
+									"protocol": "https",
+									"host": [
+										"{{k8s}}"
+									],
+									"port": "30233",
+									"path": [
+										"aai",
+										"v16",
+										"cloud-infrastructure",
+										"cloud-regions",
+										"cloud-region",
+										"k8scloudowner4",
+										"k8sregionfour"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3. [AAI] Create Complex-Cloud Region relationship",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a5266c9a-a1a3-4347-8338-f0d5592d7106",
+										"exec": [
+											"pm.test(\"Successful PUT request\", function () {",
+											"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "AAI",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "AAI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "X-TransactionId",
+										"value": "{{$randomUUID}}"
+									},
+									{
+										"key": "X-FromAppId",
+										"value": "jimmy-postman"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"related-to\": \"complex\",\n    \"related-link\": \"/aai/v16/cloud-infrastructure/complexes/complex/clli2\",\n    \"relationship-data\": [\n        {\n            \"relationship-key\": \"complex.physical-location-id\",\n            \"relationship-value\": \"clli2\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "https://{{k8s}}:30233/aai/v16/cloud-infrastructure/cloud-regions/cloud-region/k8scloudowner4/k8sregionfour/relationship-list/relationship",
+									"protocol": "https",
+									"host": [
+										"{{k8s}}"
+									],
+									"port": "30233",
+									"path": [
+										"aai",
+										"v16",
+										"cloud-infrastructure",
+										"cloud-regions",
+										"cloud-region",
+										"k8scloudowner4",
+										"k8sregionfour",
+										"relationship-list",
+										"relationship"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "4. [AAI] Create Service",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "f80fadae-8482-460c-a2ad-e19470a721bd",
+										"exec": [
+											"pm.test(\"Successful PUT request\", function () {",
+											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "AAI",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "AAI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "X-TransactionId",
+										"value": "{{$randomUUID}}"
+									},
+									{
+										"key": "X-FromAppId",
+										"value": "jimmy-postman"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"service-description\": \"vFW on K8s\",\n\"service-id\": \"vfwk8s\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "https://{{k8s}}:30233/aai/v16/service-design-and-creation/services/service/vfwk8s",
+									"protocol": "https",
+									"host": [
+										"{{k8s}}"
+									],
+									"port": "30233",
+									"path": [
+										"aai",
+										"v16",
+										"service-design-and-creation",
+										"services",
+										"service",
+										"vfwk8s"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "5. [AAI] Create Service Subscription",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "19519999-c6bc-4fec-ba11-9f13f737d321",
+										"exec": [
+											"pm.test(\"Successful PUT request\", function () {",
+											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "AAI",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "AAI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "X-TransactionId",
+										"value": "{{$randomUUID}}"
+									},
+									{
+										"key": "X-FromAppId",
+										"value": "jimmy-postman"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"service-type\": \"vfwk8s\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "https://{{k8s}}:30233/aai/v16/business/customers/customer/Demonstration/service-subscriptions/service-subscription/vfwk8s",
+									"protocol": "https",
+									"host": [
+										"{{k8s}}"
+									],
+									"port": "30233",
+									"path": [
+										"aai",
+										"v16",
+										"business",
+										"customers",
+										"customer",
+										"Demonstration",
+										"service-subscriptions",
+										"service-subscription",
+										"vfwk8s"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "6. [AAI] Create Cloud Tenant",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "907bb62c-a70b-4bc1-bcf8-206e4e1da34e",
+										"exec": [
+											"pm.test(\"Successful PUT request\", function () {",
+											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "AAI",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "AAI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "X-TransactionId",
+										"value": "{{$randomUUID}}"
+									},
+									{
+										"key": "X-FromAppId",
+										"value": "jimmy-postman"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"tenant-id\": \"aaaa\",\n    \"tenant-name\": \"k8stenant\",\n    \"relationship-list\": {\n        \"relationship\": [\n            {\n                \"related-to\": \"service-subscription\",\n                \"relationship-label\": \"org.onap.relationships.inventory.Uses\",\n                \"related-link\": \"/aai/v16/business/customers/customer/Demonstration/service-subscriptions/service-subscription/vfwk8s\",\n                \"relationship-data\": [\n                    {\n                        \"relationship-key\": \"customer.global-customer-id\",\n                        \"relationship-value\": \"Demonstration\"\n                    },\n                    {\n                        \"relationship-key\": \"service-subscription.service-type\",\n                        \"relationship-value\": \"vfwk8s\"\n                    }\n                ]\n            }\n        ]\n    }\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "https://{{k8s}}:30233/aai/v16/cloud-infrastructure/cloud-regions/cloud-region/k8scloudowner4/k8sregionfour/tenants/tenant/aaaa",
+									"protocol": "https",
+									"host": [
+										"{{k8s}}"
+									],
+									"port": "30233",
+									"path": [
+										"aai",
+										"v16",
+										"cloud-infrastructure",
+										"cloud-regions",
+										"cloud-region",
+										"k8scloudowner4",
+										"k8sregionfour",
+										"tenants",
+										"tenant",
+										"aaaa"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "7. [AAI] Create Availability Zone",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "60be189c-5ed9-4492-9aec-2d3b154dc195",
+										"exec": [
+											"pm.test(\"Successful PUT request\", function () {",
+											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "AAI",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "AAI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "X-TransactionId",
+										"value": "{{$randomUUID}}"
+									},
+									{
+										"key": "X-FromAppId",
+										"value": "jimmy-postman"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"availability-zone-name\": \"k8savz\",\n    \"hypervisor-type\": \"k8s\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "https://{{k8s}}:30233/aai/v16/cloud-infrastructure/cloud-regions/cloud-region/k8scloudowner4/k8sregionfour/availability-zones/availability-zone/k8savz",
+									"protocol": "https",
+									"host": [
+										"{{k8s}}"
+									],
+									"port": "30233",
+									"path": [
+										"aai",
+										"v16",
+										"cloud-infrastructure",
+										"cloud-regions",
+										"cloud-region",
+										"k8scloudowner4",
+										"k8sregionfour",
+										"availability-zones",
+										"availability-zone",
+										"k8savz"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1. [K8splugin] Upload Connectivity Info",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "49e1a35c-07e2-4739-a495-c24d3e541925",
+										"exec": [
+											"pm.test(\"Successful PUT request\", function () {",
+											"    pm.expect(pm.response.code).to.be.oneOf([201]);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "metadata",
+											"value": "{\n\"cloud-region\": \"k8sregionfour\",\n\"cloud-owner\": \"k8scloudowner4\"\n}",
+											"type": "text"
+										},
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/C:/Users/k.banka/Desktop/vFW CNF CDS/kubeconfig"
+										}
+									],
+									"options": {
+										"formdata": {}
+									}
+								},
+								"url": {
+									"raw": "https://{{k8s}}:30283/api/multicloud-k8s/v1/v1/connectivity-info",
+									"protocol": "https",
+									"host": [
+										"{{k8s}}"
+									],
+									"port": "30283",
+									"path": [
+										"api",
+										"multicloud-k8s",
+										"v1",
+										"v1",
+										"connectivity-info"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Upload connectivity-info filtered response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/x-www-form-urlencoded",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "metadata",
+													"value": "{\n\"cloud-region\": \"k8sregionfour\",\n\"cloud-owner\": \"k8scloudowner4\"\n}",
+													"type": "text"
+												},
+												{
+													"key": "file",
+													"type": "file",
+													"src": "/home/k.banka/lab/cnf_usacease/kubeconfig"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://{{k8s}}:30280/api/multicloud-k8s/v1/v1/connectivity-info",
+											"protocol": "http",
+											"host": [
+												"{{k8s}}"
+											],
+											"port": "30280",
+											"path": [
+												"api",
+												"multicloud-k8s",
+												"v1",
+												"v1",
+												"connectivity-info"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "openresty"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 28 Jan 2020 08:28:06 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"cloud-region\": \"k8sregionfour\",\n    \"cloud-owner\": \"k8scloudowner4\",\n    \"kubeconfig\": \"Very long representation of binary kubeconfig\",\n    \"other-connectivity-list\": {\n        \"connectivity-records\": null\n    }\n}"
+								}
+							]
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Check",
+					"item": [
+						{
+							"name": "[AAI] List Complexes",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "666c309e-2040-4c12-9565-510a6a460508",
+										"exec": [
+											"pm.test(\"Successful GET request\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check if required AAI entry is defined\", function () {\r",
+											"    resp = pm.response.json();\r",
+											"    entry = _.find(resp.complex, { \"physical-location-id\": \"clli2\" });\r",
+											"    pm.expect(entry).not.to.be.undefined;\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "AAI",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "AAI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-TransactionId",
+										"value": "{{$randomUUID}}"
+									},
+									{
+										"key": "X-FromAppId",
+										"value": "jimmy-postman"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "https://{{k8s}}:30233/aai/v16/cloud-infrastructure/complexes/",
+									"protocol": "https",
+									"host": [
+										"{{k8s}}"
+									],
+									"port": "30233",
+									"path": [
+										"aai",
+										"v16",
+										"cloud-infrastructure",
+										"complexes",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "List Complexes",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-TransactionId",
+												"value": "{{$randomUUID}}"
+											},
+											{
+												"key": "X-FromAppId",
+												"value": "jimmy-postman"
+											},
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "https://{{k8s}}:30233/aai/v16/cloud-infrastructure/complexes/",
+											"protocol": "https",
+											"host": [
+												"{{k8s}}"
+											],
+											"port": "30233",
+											"path": [
+												"aai",
+												"v16",
+												"cloud-infrastructure",
+												"complexes",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Tue, 28 Jan 2020 07:11:46 GMT"
+										},
+										{
+											"key": "vertex-id",
+											"value": "147512"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-AAI-TXID",
+											"value": "1-aai-resources-200128-07:11:46:129-79328"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1893"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=16000000; includeSubDomains; preload;"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"complex\": [\n        {\n            \"physical-location-id\": \"clli1\",\n            \"data-center-code\": \"example-data-center-code-val-5556\",\n            \"complex-name\": \"clli1\",\n            \"identity-url\": \"example-identity-url-val-56898\",\n            \"resource-version\": \"1580191860237\",\n            \"physical-location-type\": \"example-physical-location-type-val-7608\",\n            \"street1\": \"example-street1-val-34205\",\n            \"street2\": \"example-street2-val-99210\",\n            \"city\": \"example-city-val-27150\",\n            \"state\": \"example-state-val-59487\",\n            \"postal-code\": \"68871\",\n            \"country\": \"example-country-val-94173\",\n            \"region\": \"example-region-val-13893\",\n            \"latitude\": \"example-latitude-val-89101\",\n            \"longitude\": \"32.89948\",\n            \"elevation\": \"97.045443\",\n            \"lata\": \"example-lata-val-46073\",\n            \"relationship-list\": {\n                \"relationship\": [\n                    {\n                        \"related-to\": \"cloud-region\",\n                        \"relationship-label\": \"org.onap.relationships.inventory.LocatedIn\",\n                        \"related-link\": \"/aai/v16/cloud-infrastructure/cloud-regions/cloud-region/CloudOwner/RegionOne\",\n                        \"relationship-data\": [\n                            {\n                                \"relationship-key\": \"cloud-region.cloud-owner\",\n                                \"relationship-value\": \"CloudOwner\"\n                            },\n                            {\n                                \"relationship-key\": \"cloud-region.cloud-region-id\",\n                                \"relationship-value\": \"RegionOne\"\n                            }\n                        ],\n                        \"related-to-property\": [\n                            {\n                                \"property-key\": \"cloud-region.owner-defined-type\",\n                                \"property-value\": \"OwnerType\"\n                            }\n                        ]\n                    }\n                ]\n            }\n        },\n        {\n            \"physical-location-id\": \"clli2\",\n            \"resource-version\": \"1580195478056\",\n            \"physical-location-type\": \"office\",\n            \"street1\": \"Dummy 1\",\n            \"city\": \"Kraków\",\n            \"postal-code\": \"30-000\",\n            \"country\": \"Poland\",\n            \"region\": \"Smaller Poland\",\n            \"relationship-list\": {\n                \"relationship\": [\n                    {\n                        \"related-to\": \"cloud-region\",\n                        \"relationship-label\": \"org.onap.relationships.inventory.LocatedIn\",\n                        \"related-link\": \"/aai/v16/cloud-infrastructure/cloud-regions/cloud-region/k8scloudowner4/k8sregionfour\",\n                        \"relationship-data\": [\n                            {\n                                \"relationship-key\": \"cloud-region.cloud-owner\",\n                                \"relationship-value\": \"k8scloudowner4\"\n                            },\n                            {\n                                \"relationship-key\": \"cloud-region.cloud-region-id\",\n                                \"relationship-value\": \"k8sregionfour\"\n                            }\n                        ],\n                        \"related-to-property\": [\n                            {\n                                \"property-key\": \"cloud-region.owner-defined-type\",\n                                \"property-value\": \"t1\"\n                            }\n                        ]\n                    }\n                ]\n            }\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "[AAI] List Cloud Regions",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "15e71702-91c7-4f23-900b-512e835c37fc",
+										"exec": [
+											"pm.test(\"Successful GET request\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check if required AAI entry is defined\", function () {\r",
+											"    resp = pm.response.json();\r",
+											"    entry = _.find(resp[\"cloud-region\"], { \"cloud-owner\": \"k8scloudowner4\", \"cloud-region-id\": \"k8sregionfour\" });\r",
+											"    pm.expect(entry).not.to.be.undefined;\r",
+											"    pm.expect(entry[\"cloud-type\"]).to.eql(\"k8s\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "AAI",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "AAI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-TransactionId",
+										"value": "{{$randomUUID}}"
+									},
+									{
+										"key": "X-FromAppId",
+										"value": "jimmy-postman"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "https://{{k8s}}:30233/aai/v16/cloud-infrastructure/cloud-regions/",
+									"protocol": "https",
+									"host": [
+										"{{k8s}}"
+									],
+									"port": "30233",
+									"path": [
+										"aai",
+										"v16",
+										"cloud-infrastructure",
+										"cloud-regions",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "List Cloud Regions",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-TransactionId",
+												"value": "{{$randomUUID}}"
+											},
+											{
+												"key": "X-FromAppId",
+												"value": "jimmy-postman"
+											},
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "https://{{k8s}}:30233/aai/v16/cloud-infrastructure/cloud-regions/",
+											"protocol": "https",
+											"host": [
+												"{{k8s}}"
+											],
+											"port": "30233",
+											"path": [
+												"aai",
+												"v16",
+												"cloud-infrastructure",
+												"cloud-regions",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Tue, 28 Jan 2020 07:12:04 GMT"
+										},
+										{
+											"key": "vertex-id",
+											"value": "323608"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-AAI-TXID",
+											"value": "1-aai-resources-200128-07:12:04:857-9832"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1179"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=16000000; includeSubDomains; preload;"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"cloud-region\": [\n        {\n            \"cloud-owner\": \"CloudOwner\",\n            \"cloud-region-id\": \"RegionOne\",\n            \"cloud-type\": \"SharedNode\",\n            \"owner-defined-type\": \"OwnerType\",\n            \"cloud-region-version\": \"v1\",\n            \"cloud-zone\": \"CloudZone\",\n            \"orchestration-disabled\": false,\n            \"in-maint\": false,\n            \"resource-version\": \"1580191859765\",\n            \"relationship-list\": {\n                \"relationship\": [\n                    {\n                        \"related-to\": \"complex\",\n                        \"relationship-label\": \"org.onap.relationships.inventory.LocatedIn\",\n                        \"related-link\": \"/aai/v16/cloud-infrastructure/complexes/complex/clli1\",\n                        \"relationship-data\": [\n                            {\n                                \"relationship-key\": \"complex.physical-location-id\",\n                                \"relationship-value\": \"clli1\"\n                            }\n                        ]\n                    }\n                ]\n            }\n        },\n        {\n            \"cloud-owner\": \"k8scloudowner4\",\n            \"cloud-region-id\": \"k8sregionfour\",\n            \"cloud-type\": \"k8s\",\n            \"owner-defined-type\": \"t1\",\n            \"cloud-region-version\": \"1.0\",\n            \"cloud-zone\": \"CloudZone\",\n            \"complex-name\": \"clli2\",\n            \"sriov-automation\": \"false\",\n            \"orchestration-disabled\": false,\n            \"in-maint\": false,\n            \"resource-version\": \"1580195478305\",\n            \"relationship-list\": {\n                \"relationship\": [\n                    {\n                        \"related-to\": \"complex\",\n                        \"relationship-label\": \"org.onap.relationships.inventory.LocatedIn\",\n                        \"related-link\": \"/aai/v16/cloud-infrastructure/complexes/complex/clli2\",\n                        \"relationship-data\": [\n                            {\n                                \"relationship-key\": \"complex.physical-location-id\",\n                                \"relationship-value\": \"clli2\"\n                            }\n                        ]\n                    }\n                ]\n            }\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "[AAI] List Cloud Region's Tenants",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "bf05fd0d-e7ed-48d6-aba4-ff172498345d",
+										"exec": [
+											"pm.test(\"Successful GET request\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check if required AAI entry is defined\", function () {\r",
+											"    resp = pm.response.json();\r",
+											"    entry = _.find(resp[\"tenant\"], { \"tenant-id\": \"aaaa\", \"tenant-name\": \"k8stenant\" });\r",
+											"    pm.expect(entry).not.to.be.undefined;\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "AAI",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "AAI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-TransactionId",
+										"value": "{{$randomUUID}}"
+									},
+									{
+										"key": "X-FromAppId",
+										"value": "jimmy-postman"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "https://{{k8s}}:30233/aai/v16/cloud-infrastructure/cloud-regions/cloud-region/k8scloudowner4/k8sregionfour/tenants/",
+									"protocol": "https",
+									"host": [
+										"{{k8s}}"
+									],
+									"port": "30233",
+									"path": [
+										"aai",
+										"v16",
+										"cloud-infrastructure",
+										"cloud-regions",
+										"cloud-region",
+										"k8scloudowner4",
+										"k8sregionfour",
+										"tenants",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "List Cloud Region's Tenants",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-TransactionId",
+												"value": "{{$randomUUID}}"
+											},
+											{
+												"key": "X-FromAppId",
+												"value": "jimmy-postman"
+											},
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "https://{{k8s}}:30233/aai/v16/cloud-infrastructure/cloud-regions/cloud-region/k8scloudowner4/k8sregionfour/tenants/",
+											"protocol": "https",
+											"host": [
+												"{{k8s}}"
+											],
+											"port": "30233",
+											"path": [
+												"aai",
+												"v16",
+												"cloud-infrastructure",
+												"cloud-regions",
+												"cloud-region",
+												"k8scloudowner4",
+												"k8sregionfour",
+												"tenants",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Tue, 28 Jan 2020 07:12:44 GMT"
+										},
+										{
+											"key": "vertex-id",
+											"value": "507952"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-AAI-TXID",
+											"value": "1-aai-resources-200128-07:12:44:760-29756"
+										},
+										{
+											"key": "Content-Length",
+											"value": "547"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=16000000; includeSubDomains; preload;"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"tenant\": [\n        {\n            \"tenant-id\": \"aaaa\",\n            \"tenant-name\": \"k8stenant\",\n            \"resource-version\": \"1580195478672\",\n            \"relationship-list\": {\n                \"relationship\": [\n                    {\n                        \"related-to\": \"service-subscription\",\n                        \"relationship-label\": \"org.onap.relationships.inventory.Uses\",\n                        \"related-link\": \"/aai/v16/business/customers/customer/Demonstration/service-subscriptions/service-subscription/vfwk8s\",\n                        \"relationship-data\": [\n                            {\n                                \"relationship-key\": \"customer.global-customer-id\",\n                                \"relationship-value\": \"Demonstration\"\n                            },\n                            {\n                                \"relationship-key\": \"service-subscription.service-type\",\n                                \"relationship-value\": \"vfwk8s\"\n                            }\n                        ]\n                    }\n                ]\n            }\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "[AAI] List Cloud Region's AvZones",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "6497a905-6a0c-46b1-b5e3-ee18e3217c45",
+										"exec": [
+											"pm.test(\"Successful GET request\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check if required AAI entry is defined\", function () {\r",
+											"    resp = pm.response.json();\r",
+											"    entry = _.find(resp[\"availability-zone\"], { \"availability-zone-name\": \"k8savz\" });\r",
+											"    pm.expect(entry).not.to.be.undefined;\r",
+											"    pm.expect(entry[\"hypervisor-type\"]).to.eql(\"k8s\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "AAI",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "AAI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-TransactionId",
+										"value": "{{$randomUUID}}"
+									},
+									{
+										"key": "X-FromAppId",
+										"value": "jimmy-postman"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "https://{{k8s}}:30233/aai/v16/cloud-infrastructure/cloud-regions/cloud-region/k8scloudowner4/k8sregionfour/availability-zones/",
+									"protocol": "https",
+									"host": [
+										"{{k8s}}"
+									],
+									"port": "30233",
+									"path": [
+										"aai",
+										"v16",
+										"cloud-infrastructure",
+										"cloud-regions",
+										"cloud-region",
+										"k8scloudowner4",
+										"k8sregionfour",
+										"availability-zones",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "List Cloud Region's AvZones",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-TransactionId",
+												"value": "{{$randomUUID}}"
+											},
+											{
+												"key": "X-FromAppId",
+												"value": "jimmy-postman"
+											},
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "https://{{k8s}}:30233/aai/v16/cloud-infrastructure/cloud-regions/cloud-region/k8scloudowner4/k8sregionfour/availability-zones/",
+											"protocol": "https",
+											"host": [
+												"{{k8s}}"
+											],
+											"port": "30233",
+											"path": [
+												"aai",
+												"v16",
+												"cloud-infrastructure",
+												"cloud-regions",
+												"cloud-region",
+												"k8scloudowner4",
+												"k8sregionfour",
+												"availability-zones",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Tue, 28 Jan 2020 07:13:11 GMT"
+										},
+										{
+											"key": "vertex-id",
+											"value": "512048"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-AAI-TXID",
+											"value": "0-aai-resources-200128-07:13:11:585-52111"
+										},
+										{
+											"key": "Content-Length",
+											"value": "118"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=16000000; includeSubDomains; preload;"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"availability-zone\": [\n        {\n            \"availability-zone-name\": \"k8savz\",\n            \"hypervisor-type\": \"k8s\",\n            \"resource-version\": \"1580195478800\"\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "[AAI] List Services",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "fea05e29-a6ed-4cd2-8b7b-0e6c2d4e25ea",
+										"exec": [
+											"pm.test(\"Successful GET request\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check if required AAI entry is defined\", function () {\r",
+											"    resp = pm.response.json();\r",
+											"    entry = _.find(resp[\"service\"], { \"service-id\": \"vfwk8s\" });\r",
+											"    pm.expect(entry).not.to.be.undefined;\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "AAI",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "AAI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-TransactionId",
+										"value": "{{$randomUUID}}"
+									},
+									{
+										"key": "X-FromAppId",
+										"value": "jimmy-postman"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "https://{{k8s}}:30233/aai/v16/service-design-and-creation/services/",
+									"protocol": "https",
+									"host": [
+										"{{k8s}}"
+									],
+									"port": "30233",
+									"path": [
+										"aai",
+										"v16",
+										"service-design-and-creation",
+										"services",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "List Services",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-TransactionId",
+												"value": "{{$randomUUID}}"
+											},
+											{
+												"key": "X-FromAppId",
+												"value": "jimmy-postman"
+											},
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "https://{{k8s}}:30233/aai/v16/service-design-and-creation/services/",
+											"protocol": "https",
+											"host": [
+												"{{k8s}}"
+											],
+											"port": "30233",
+											"path": [
+												"aai",
+												"v16",
+												"service-design-and-creation",
+												"services",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Tue, 28 Jan 2020 07:14:04 GMT"
+										},
+										{
+											"key": "vertex-id",
+											"value": "151608"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-AAI-TXID",
+											"value": "1-aai-resources-200128-07:14:04:211-77476"
+										},
+										{
+											"key": "Content-Length",
+											"value": "813"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=16000000; includeSubDomains; preload;"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"service\": [\n        {\n            \"service-id\": \"fc1bc381-b257-4c37-9493-f81e6204de5f\",\n            \"service-description\": \"vFWCL\",\n            \"resource-version\": \"1580191860791\"\n        },\n        {\n            \"service-id\": \"d571596a-a585-4a0b-bbb3-2bb2b14514f4\",\n            \"service-description\": \"vLB\",\n            \"resource-version\": \"1580191860935\"\n        },\n        {\n            \"service-id\": \"e68daca7-0153-4f25-a748-933876e1c5fd\",\n            \"service-description\": \"vIMS\",\n            \"resource-version\": \"1580191861258\"\n        },\n        {\n            \"service-id\": \"3173fe58-557f-4cd1-a203-11afeb9a52a1\",\n            \"service-description\": \"vFW\",\n            \"resource-version\": \"1580191860595\"\n        },\n        {\n            \"service-id\": \"e7fdaac5-731e-4032-a994-0feb9b1ab33e\",\n            \"service-description\": \"gNB\",\n            \"resource-version\": \"1580191861525\"\n        },\n        {\n            \"service-id\": \"vfwk8s\",\n            \"service-description\": \"vFW on K8s\",\n            \"resource-version\": \"1580195478434\"\n        },\n        {\n            \"service-id\": \"6210fa2e-b531-47f0-9a7c-c3bee5c7f389\",\n            \"service-description\": \"vCPE\",\n            \"resource-version\": \"1580191861081\"\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "[AAI] List Customers Subscriptions",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "7d64ada7-7c57-4f94-a2b1-0bf9e3e978c7",
+										"exec": [
+											"pm.test(\"Successful GET request\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check if required AAI entry is defined\", function () {\r",
+											"    resp = pm.response.json();\r",
+											"    entry = _.find(resp[\"service-subscription\"], { \"service-type\": \"vfwk8s\" });\r",
+											"    pm.expect(entry).not.to.be.undefined;\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "AAI",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "AAI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-TransactionId",
+										"value": "{{$randomUUID}}"
+									},
+									{
+										"key": "X-FromAppId",
+										"value": "jimmy-postman"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "https://{{k8s}}:30233/aai/v16/business/customers/customer/Demonstration/service-subscriptions",
+									"protocol": "https",
+									"host": [
+										"{{k8s}}"
+									],
+									"port": "30233",
+									"path": [
+										"aai",
+										"v16",
+										"business",
+										"customers",
+										"customer",
+										"Demonstration",
+										"service-subscriptions"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "List Customers Subscriptions",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "X-TransactionId",
+												"value": "{{$randomUUID}}"
+											},
+											{
+												"key": "X-FromAppId",
+												"value": "jimmy-postman"
+											},
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "https://{{k8s}}:30233/aai/v16/business/customers/customer/Demonstration/service-subscriptions",
+											"protocol": "https",
+											"host": [
+												"{{k8s}}"
+											],
+											"port": "30233",
+											"path": [
+												"aai",
+												"v16",
+												"business",
+												"customers",
+												"customer",
+												"Demonstration",
+												"service-subscriptions"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Tue, 28 Jan 2020 07:13:42 GMT"
+										},
+										{
+											"key": "vertex-id",
+											"value": "164056"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-AAI-TXID",
+											"value": "2-aai-resources-200128-07:13:42:951-6791"
+										},
+										{
+											"key": "Content-Length",
+											"value": "4906"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=16000000; includeSubDomains; preload;"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"service-subscription\": [\n        {\n            \"service-type\": \"vFWCL\",\n            \"resource-version\": \"1580191861610\",\n            \"relationship-list\": {\n                \"relationship\": [\n                    {\n                        \"related-to\": \"tenant\",\n                        \"relationship-label\": \"org.onap.relationships.inventory.Uses\",\n                        \"related-link\": \"/aai/v16/cloud-infrastructure/cloud-regions/cloud-region/CloudOwner/RegionOne/tenants/tenant/b1ce7742d956463999923ceaed71786e\",\n                        \"relationship-data\": [\n                            {\n                                \"relationship-key\": \"cloud-region.cloud-owner\",\n                                \"relationship-value\": \"CloudOwner\"\n                            },\n                            {\n                                \"relationship-key\": \"cloud-region.cloud-region-id\",\n                                \"relationship-value\": \"RegionOne\"\n                            },\n                            {\n                                \"relationship-key\": \"tenant.tenant-id\",\n                                \"relationship-value\": \"b1ce7742d956463999923ceaed71786e\"\n                            }\n                        ],\n                        \"related-to-property\": [\n                            {\n                                \"property-key\": \"tenant.tenant-name\",\n                                \"property-value\": \"onap-tieto\"\n                            }\n                        ]\n                    }\n                ]\n            }\n        },\n        {\n            \"service-type\": \"vIMS\",\n            \"resource-version\": \"1580191861610\",\n            \"relationship-list\": {\n                \"relationship\": [\n                    {\n                        \"related-to\": \"tenant\",\n                        \"relationship-label\": \"org.onap.relationships.inventory.Uses\",\n                        \"related-link\": \"/aai/v16/cloud-infrastructure/cloud-regions/cloud-region/CloudOwner/RegionOne/tenants/tenant/b1ce7742d956463999923ceaed71786e\",\n                        \"relationship-data\": [\n                            {\n                                \"relationship-key\": \"cloud-region.cloud-owner\",\n                                \"relationship-value\": \"CloudOwner\"\n                            },\n                            {\n                                \"relationship-key\": \"cloud-region.cloud-region-id\",\n                                \"relationship-value\": \"RegionOne\"\n                            },\n                            {\n                                \"relationship-key\": \"tenant.tenant-id\",\n                                \"relationship-value\": \"b1ce7742d956463999923ceaed71786e\"\n                            }\n                        ],\n                        \"related-to-property\": [\n                            {\n                                \"property-key\": \"tenant.tenant-name\",\n                                \"property-value\": \"onap-tieto\"\n                            }\n                        ]\n                    }\n                ]\n            }\n        },\n        {\n            \"service-type\": \"vCPE\",\n            \"resource-version\": \"1580191861610\",\n            \"relationship-list\": {\n                \"relationship\": [\n                    {\n                        \"related-to\": \"tenant\",\n                        \"relationship-label\": \"org.onap.relationships.inventory.Uses\",\n                        \"related-link\": \"/aai/v16/cloud-infrastructure/cloud-regions/cloud-region/CloudOwner/RegionOne/tenants/tenant/b1ce7742d956463999923ceaed71786e\",\n                        \"relationship-data\": [\n                            {\n                                \"relationship-key\": \"cloud-region.cloud-owner\",\n                                \"relationship-value\": \"CloudOwner\"\n                            },\n                            {\n                                \"relationship-key\": \"cloud-region.cloud-region-id\",\n                                \"relationship-value\": \"RegionOne\"\n                            },\n                            {\n                                \"relationship-key\": \"tenant.tenant-id\",\n                                \"relationship-value\": \"b1ce7742d956463999923ceaed71786e\"\n                            }\n                        ],\n                        \"related-to-property\": [\n                            {\n                                \"property-key\": \"tenant.tenant-name\",\n                                \"property-value\": \"onap-tieto\"\n                            }\n                        ]\n                    }\n                ]\n            }\n        },\n        {\n            \"service-type\": \"vLB\",\n            \"resource-version\": \"1580191861610\",\n            \"relationship-list\": {\n                \"relationship\": [\n                    {\n                        \"related-to\": \"tenant\",\n                        \"relationship-label\": \"org.onap.relationships.inventory.Uses\",\n                        \"related-link\": \"/aai/v16/cloud-infrastructure/cloud-regions/cloud-region/CloudOwner/RegionOne/tenants/tenant/b1ce7742d956463999923ceaed71786e\",\n                        \"relationship-data\": [\n                            {\n                                \"relationship-key\": \"cloud-region.cloud-owner\",\n                                \"relationship-value\": \"CloudOwner\"\n                            },\n                            {\n                                \"relationship-key\": \"cloud-region.cloud-region-id\",\n                                \"relationship-value\": \"RegionOne\"\n                            },\n                            {\n                                \"relationship-key\": \"tenant.tenant-id\",\n                                \"relationship-value\": \"b1ce7742d956463999923ceaed71786e\"\n                            }\n                        ],\n                        \"related-to-property\": [\n                            {\n                                \"property-key\": \"tenant.tenant-name\",\n                                \"property-value\": \"onap-tieto\"\n                            }\n                        ]\n                    }\n                ]\n            }\n        },\n        {\n            \"service-type\": \"gNB\",\n            \"resource-version\": \"1580191861610\",\n            \"relationship-list\": {\n                \"relationship\": [\n                    {\n                        \"related-to\": \"tenant\",\n                        \"relationship-label\": \"org.onap.relationships.inventory.Uses\",\n                        \"related-link\": \"/aai/v16/cloud-infrastructure/cloud-regions/cloud-region/CloudOwner/RegionOne/tenants/tenant/b1ce7742d956463999923ceaed71786e\",\n                        \"relationship-data\": [\n                            {\n                                \"relationship-key\": \"cloud-region.cloud-owner\",\n                                \"relationship-value\": \"CloudOwner\"\n                            },\n                            {\n                                \"relationship-key\": \"cloud-region.cloud-region-id\",\n                                \"relationship-value\": \"RegionOne\"\n                            },\n                            {\n                                \"relationship-key\": \"tenant.tenant-id\",\n                                \"relationship-value\": \"b1ce7742d956463999923ceaed71786e\"\n                            }\n                        ],\n                        \"related-to-property\": [\n                            {\n                                \"property-key\": \"tenant.tenant-name\",\n                                \"property-value\": \"onap-tieto\"\n                            }\n                        ]\n                    }\n                ]\n            }\n        },\n        {\n            \"service-type\": \"vFW\",\n            \"resource-version\": \"1580191861610\",\n            \"relationship-list\": {\n                \"relationship\": [\n                    {\n                        \"related-to\": \"tenant\",\n                        \"relationship-label\": \"org.onap.relationships.inventory.Uses\",\n                        \"related-link\": \"/aai/v16/cloud-infrastructure/cloud-regions/cloud-region/CloudOwner/RegionOne/tenants/tenant/b1ce7742d956463999923ceaed71786e\",\n                        \"relationship-data\": [\n                            {\n                                \"relationship-key\": \"cloud-region.cloud-owner\",\n                                \"relationship-value\": \"CloudOwner\"\n                            },\n                            {\n                                \"relationship-key\": \"cloud-region.cloud-region-id\",\n                                \"relationship-value\": \"RegionOne\"\n                            },\n                            {\n                                \"relationship-key\": \"tenant.tenant-id\",\n                                \"relationship-value\": \"b1ce7742d956463999923ceaed71786e\"\n                            }\n                        ],\n                        \"related-to-property\": [\n                            {\n                                \"property-key\": \"tenant.tenant-name\",\n                                \"property-value\": \"onap-tieto\"\n                            }\n                        ]\n                    }\n                ]\n            }\n        },\n        {\n            \"service-type\": \"vfwk8s\",\n            \"resource-version\": \"1580195478560\",\n            \"relationship-list\": {\n                \"relationship\": [\n                    {\n                        \"related-to\": \"tenant\",\n                        \"relationship-label\": \"org.onap.relationships.inventory.Uses\",\n                        \"related-link\": \"/aai/v16/cloud-infrastructure/cloud-regions/cloud-region/k8scloudowner4/k8sregionfour/tenants/tenant/aaaa\",\n                        \"relationship-data\": [\n                            {\n                                \"relationship-key\": \"cloud-region.cloud-owner\",\n                                \"relationship-value\": \"k8scloudowner4\"\n                            },\n                            {\n                                \"relationship-key\": \"cloud-region.cloud-region-id\",\n                                \"relationship-value\": \"k8sregionfour\"\n                            },\n                            {\n                                \"relationship-key\": \"tenant.tenant-id\",\n                                \"relationship-value\": \"aaaa\"\n                            }\n                        ],\n                        \"related-to-property\": [\n                            {\n                                \"property-key\": \"tenant.tenant-name\",\n                                \"property-value\": \"k8stenant\"\n                            }\n                        ]\n                    }\n                ]\n            }\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "[K8splugin] Get Cloud Region",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "b78bac62-e606-4834-b7b5-9f9d9003bfdb",
+										"exec": [
+											"pm.test(\"Successful GET request\", function () {",
+											"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+											"});",
+											"",
+											"pm.test(\"Check if Cloud Region is defined\", function () {",
+											"    resp = pm.response.json();",
+											"    pm.expect(resp[\"cloud-region\"]).to.eql(\"k8sregionfour\");",
+											"    pm.expect(resp[\"cloud-owner\"]).to.eql(\"k8scloudowner4\");",
+											"    pm.expect(resp.kubeconfig).not.to.be.null;",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{k8s}}:30283/api/multicloud-k8s/v1/v1/connectivity-info/k8sregionfour",
+									"protocol": "https",
+									"host": [
+										"{{k8s}}"
+									],
+									"port": "30283",
+									"path": [
+										"api",
+										"multicloud-k8s",
+										"v1",
+										"v1",
+										"connectivity-info",
+										"k8sregionfour"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "[SO] Catalog DB Cloud Sites",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "0794f6df-4ff1-4973-9333-89bad0e818e2",
+										"exec": [
+											"pm.test(\"Successful POST request\", function () {",
+											"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+											"});",
+											"",
+											"var resp = pm.response.json()",
+											"",
+											"pm.test(\"Check if cloud region is properly defined\", function () {",
+											"    pm.expect(resp.id).to.eql(\"k8sregionfour\");",
+											"    pm.expect(resp.identityService).not.to.be.null;",
+											"    pm.expect(resp.identity_service_id).not.to.be.null;",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "password1$",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "bpel",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{k8s}}:30120/cloudSite/k8sregionfour",
+									"protocol": "http",
+									"host": [
+										"{{k8s}}"
+									],
+									"port": "30120",
+									"path": [
+										"cloudSite",
+										"k8sregionfour"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Distribution verification (CDS/K8splugin)",
+			"item": [
+				{
+					"name": "[CDS] List CBAs",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "ccsdkapps",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "ccsdkapps",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{k8s}}:30499/api/v1/blueprint-model",
+							"host": [
+								"{{k8s}}"
+							],
+							"port": "30499",
+							"path": [
+								"api",
+								"v1",
+								"blueprint-model"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[CDS] CBA Download",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "ccsdkapps",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "ccsdkapps",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9,ar;q=0.8,fr;q=0.7"
+							}
+						],
+						"url": {
+							"raw": "{{k8s}}:30499/api/v1/blueprint-model/download/{{cba_id}}",
+							"host": [
+								"{{k8s}}"
+							],
+							"port": "30499",
+							"path": [
+								"api",
+								"v1",
+								"blueprint-model",
+								"download",
+								"{{cba_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[K8splugin] List Resource Bundle Definitions",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e8cc57ec-91d9-408b-83cc-6ee73e79959f",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{k8s}}:30283/api/multicloud-k8s/v1/v1/rb/definition",
+							"protocol": "https",
+							"host": [
+								"{{k8s}}"
+							],
+							"port": "30283",
+							"path": [
+								"api",
+								"multicloud-k8s",
+								"v1",
+								"v1",
+								"rb",
+								"definition"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "LCM (SDC/SO)",
+			"item": [
+				{
+					"name": "1. [SDC] Catalog Service",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e04d8a97-b489-493d-aef4-2a0519179310",
+								"exec": [
+									"name = pm.variables.get(\"service-name\");",
+									"version = pm.variables.get(\"service-version\");",
+									"console.log(\"Lookup service mode in SDC Catalog: {\" + name + \":\" + version + \"}\");",
+									"ee = _.find(pm.response.json(),{\"name\": name, \"version\": version});",
+									"",
+									"pm.test(\"Find defined service in SDC catalog\", function () {",
+									"    pm.expect(ee).not.to.be.undefined;",
+									"});",
+									"",
+									"pm.environment.set(\"service-uuid\",ee.uuid);",
+									"pm.environment.set(\"service-invariantUUID\",ee.invariantUUID);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "vid",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "Kp8bJ4SXszM0WXlhak3eHlcse2gAw84vaoGGmJvUy2U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-ECOMP-InstanceID",
+								"value": "VID",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{k8s}}:30204/sdc/v1/catalog/services",
+							"protocol": "https",
+							"host": [
+								"{{k8s}}"
+							],
+							"port": "30204",
+							"path": [
+								"sdc",
+								"v1",
+								"catalog",
+								"services"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2. [SO] Catalog DB Service xNFs",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3ab5ab18-d73a-4a30-b6ae-c44a07095102",
+								"exec": [
+									"pm.test(\"Successful GET request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+									"});",
+									"",
+									"x = pm.response.json();",
+									"pm.environment.set(\"vnf-modelinfo-modelname\", x.serviceVnfs[0].modelInfo.modelName);",
+									"pm.environment.set(\"vnf-modelinfo-modelversion\", x.serviceVnfs[0].modelInfo.modelVersion);",
+									"pm.environment.set(\"vnf-modelinfo-modeluuid\", x.serviceVnfs[0].modelInfo.modelUuid);",
+									"pm.environment.set(\"vnf-modelinfo-modelinvariantuuid\", x.serviceVnfs[0].modelInfo.modelInvariantUuid);",
+									"pm.environment.set(\"vnf-modelinfo-modelcustomizationuuid\", x.serviceVnfs[0].modelInfo.modelCustomizationUuid);",
+									"pm.environment.set(\"vnf-modelinfo-modelinstancename\", x.serviceVnfs[0].modelInfo.modelInstanceName);",
+									"pm.environment.set(\"vnf-vfmodule-0-modelinfo-modelname\", x.serviceVnfs[0].vfModules[0].modelInfo.modelName);",
+									"pm.environment.set(\"vnf-vfmodule-0-modelinfo-modeluuid\", x.serviceVnfs[0].vfModules[0].modelInfo.modelUuid);",
+									"pm.environment.set(\"vnf-vfmodule-0-modelinfo-modelinvariantuuid\", x.serviceVnfs[0].vfModules[0].modelInfo.modelInvariantUuid);",
+									"pm.environment.set(\"vnf-vfmodule-0-modelinfo-modelcustomizationuuid\", x.serviceVnfs[0].vfModules[0].modelInfo.modelCustomizationUuid);",
+									"pm.environment.set(\"vnf-vfmodule-0-label\", x.serviceVnfs[0].vfModules[0].vfModuleLabel);",
+									"pm.environment.set(\"vnf-vfmodule-1-modelinfo-modelname\", x.serviceVnfs[0].vfModules[1].modelInfo.modelName);",
+									"pm.environment.set(\"vnf-vfmodule-1-modelinfo-modeluuid\", x.serviceVnfs[0].vfModules[1].modelInfo.modelUuid);",
+									"pm.environment.set(\"vnf-vfmodule-1-modelinfo-modelinvariantuuid\", x.serviceVnfs[0].vfModules[1].modelInfo.modelInvariantUuid);",
+									"pm.environment.set(\"vnf-vfmodule-1-modelinfo-modelcustomizationuuid\", x.serviceVnfs[0].vfModules[1].modelInfo.modelCustomizationUuid);",
+									"pm.environment.set(\"vnf-vfmodule-1-label\", x.serviceVnfs[0].vfModules[1].vfModuleLabel);",
+									"pm.environment.set(\"vnf-vfmodule-2-modelinfo-modelname\", x.serviceVnfs[0].vfModules[2].modelInfo.modelName);",
+									"pm.environment.set(\"vnf-vfmodule-2-modelinfo-modeluuid\", x.serviceVnfs[0].vfModules[2].modelInfo.modelUuid);",
+									"pm.environment.set(\"vnf-vfmodule-2-modelinfo-modelinvariantuuid\", x.serviceVnfs[0].vfModules[2].modelInfo.modelInvariantUuid);",
+									"pm.environment.set(\"vnf-vfmodule-2-modelinfo-modelcustomizationuuid\", x.serviceVnfs[0].vfModules[2].modelInfo.modelCustomizationUuid);",
+									"pm.environment.set(\"vnf-vfmodule-2-label\", x.serviceVnfs[0].vfModules[2].vfModuleLabel);",
+									"pm.environment.set(\"vnf-vfmodule-3-modelinfo-modelname\", x.serviceVnfs[0].vfModules[3].modelInfo.modelName);",
+									"pm.environment.set(\"vnf-vfmodule-3-modelinfo-modeluuid\", x.serviceVnfs[0].vfModules[3].modelInfo.modelUuid);",
+									"pm.environment.set(\"vnf-vfmodule-3-modelinfo-modelinvariantuuid\", x.serviceVnfs[0].vfModules[3].modelInfo.modelInvariantUuid);",
+									"pm.environment.set(\"vnf-vfmodule-3-modelinfo-modelcustomizationuuid\", x.serviceVnfs[0].vfModules[3].modelInfo.modelCustomizationUuid);",
+									"pm.environment.set(\"vnf-vfmodule-3-label\", x.serviceVnfs[0].vfModules[3].vfModuleLabel);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "password1$",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "bpel",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{k8s}}:30120/ecomp/mso/catalog/v2/serviceVnfs?serviceModelUuid={{service-uuid}}",
+							"protocol": "http",
+							"host": [
+								"{{k8s}}"
+							],
+							"port": "30120",
+							"path": [
+								"ecomp",
+								"mso",
+								"catalog",
+								"v2",
+								"serviceVnfs"
+							],
+							"query": [
+								{
+									"key": "serviceModelUuid",
+									"value": "{{service-uuid}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3. [SO] Self-Serve Service Assign & Activate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "09faf517-798b-4750-b109-3f295d8cd7d9",
+								"exec": [
+									"x = pm.response.json();",
+									"pm.environment.set(\"so-request-id\",x.requestReferences.requestId);",
+									"pm.environment.set(\"service-instance-id\",x.requestReferences.instanceId);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "dda46b57-de29-4836-8cdd-08b433a2e90c",
+								"exec": [
+									"y = pm.environment.get(\"service-instance-name\").split(\"-\");",
+									"if (!isNaN(y[y.length - 1])) {",
+									"    y[y.length - 1] = (y[y.length - 1] * 1 + 1).toString();",
+									"}",
+									"pm.environment.set(\"service-instance-name\", y.join(\"-\"));",
+									"",
+									"pm.environment.set(\"vnf-modelinfo-instancename\",pm.environment.get(\"service-instance-name\") + \"-vnf\")",
+									"pm.environment.set(\"vnf-vfmodule-0-modelinfo-instancename\",pm.environment.get(\"service-instance-name\") + \"-\" + pm.environment.get(\"vnf-vfmodule-0-label\"))",
+									"pm.environment.set(\"vnf-vfmodule-1-modelinfo-instancename\",pm.environment.get(\"service-instance-name\") + \"-\" + pm.environment.get(\"vnf-vfmodule-1-label\"))",
+									"pm.environment.set(\"vnf-vfmodule-2-modelinfo-instancename\",pm.environment.get(\"service-instance-name\") + \"-\" + pm.environment.get(\"vnf-vfmodule-2-label\"))",
+									"pm.environment.set(\"vnf-vfmodule-3-modelinfo-instancename\",pm.environment.get(\"service-instance-name\") + \"-\" + pm.environment.get(\"vnf-vfmodule-3-label\"))"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "password1$",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "InfraPortalClient",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"requestDetails\": {\n        \"subscriberInfo\": {\n            \"globalSubscriberId\": \"Demonstration\"\n        },\n        \"requestInfo\": {\n            \"suppressRollback\": false,\n            \"productFamilyId\": \"a9a77d5a-123e-4ca2-9eb9-0b015d2ee0fb\",\n            \"requestorId\": \"{{$guid}}\",\n            \"instanceName\": \"{{service-instance-name}}\",\n            \"source\": \"Postman\"\n        },\n        \"cloudConfiguration\": {\n            \"lcpCloudRegionId\": \"k8sregionfour\",\n            \"tenantId\": \"aaaa\",\n            \"cloudOwner\": \"k8scloudowner4\"\n        },\n        \"requestParameters\": {\n            \"subscriptionServiceType\": \"vfwk8s\",\n            \"userParams\": [\n                {\n                    \"Homing_Solution\": \"none\"\n                },\n                {\n                    \"service\": {\n                        \"instanceParams\": [\n                            {}\n                        ],\n                        \"instanceName\": \"{{service-instance-name}}\",\n                        \"resources\": {\n                            \"vnfs\": [\n                                {\n                                    \"modelInfo\": {\n                                        \"modelName\": \"{{vnf-modelinfo-modelname}}\",\n                                        \"modelVersionId\": \"{{vnf-modelinfo-modeluuid}}\",\n                                        \"modelInvariantUuid\": \"{{vnf-modelinfo-modelinvariantuuid}}\",\n                                        \"modelVersion\": \"{{vnf-modelinfo-modelversion}}\",\n                                        \"modelCustomizationId\": \"{{vnf-modelinfo-modelcustomizationuuid}}\",\n                                        \"modelInstanceName\": \"{{vnf-modelinfo-modelinstancename}}\"\n                                    },\n                                    \"cloudConfiguration\": {\n                                        \"lcpCloudRegionId\": \"k8sregionfour\",\n                                        \"tenantId\": \"aaaa\"\n                                    },\n                                    \"platform\": {\n                                        \"platformName\": \"test\"\n                                    },\n                                    \"lineOfBusiness\": {\n                                        \"lineOfBusinessName\": \"LOB-Demonstration\"\n                                    },\n                                    \"productFamilyId\": \"a9a77d5a-123e-4ca2-9eb9-0b015d2ee0fb\",\n                                    \"instanceName\": \"{{vnf-modelinfo-instancename}}\",\n                                    \"instanceParams\": [\n                                        {\n                                            \"k8s-rb-profile-name\": \"default\"\n                                        }\n                                    ],\n                                    \"vfModules\": [\n                                        {\n                                            \"modelInfo\": {\n                                                \"modelName\": \"{{vnf-vfmodule-3-modelinfo-modelname}}\",\n                                                \"modelVersionId\": \"{{vnf-vfmodule-3-modelinfo-modeluuid}}\",\n                                                \"modelInvariantUuid\": \"{{vnf-vfmodule-3-modelinfo-modelinvariantuuid}}\",\n                                                \"modelVersion\": \"1\",\n                                                \"modelCustomizationId\": \"{{vnf-vfmodule-3-modelinfo-modelcustomizationuuid}}\"\n                                            },\n                                            \"instanceName\": \"{{vnf-vfmodule-3-modelinfo-instancename}}\",\n                                            \"instanceParams\": [\n                                                {\n                                                    \"k8s-rb-profile-name\": \"default\"\n                                                }\n                                            ]\n                                        },\n                                        {\n                                            \"modelInfo\": {\n                                                \"modelName\": \"{{vnf-vfmodule-2-modelinfo-modelname}}\",\n                                                \"modelVersionId\": \"{{vnf-vfmodule-2-modelinfo-modeluuid}}\",\n                                                \"modelInvariantUuid\": \"{{vnf-vfmodule-2-modelinfo-modelinvariantuuid}}\",\n                                                \"modelVersion\": \"1\",\n                                                \"modelCustomizationId\": \"{{vnf-vfmodule-2-modelinfo-modelcustomizationuuid}}\"\n                                            },\n                                            \"instanceName\": \"{{vnf-vfmodule-2-modelinfo-instancename}}\",\n                                            \"instanceParams\": [\n                                                {\n                                                    \"k8s-rb-profile-name\": \"default\"\n                                                }\n                                            ]\n                                        },\n                                        {\n                                            \"modelInfo\": {\n                                                \"modelName\": \"{{vnf-vfmodule-1-modelinfo-modelname}}\",\n                                                \"modelVersionId\": \"{{vnf-vfmodule-1-modelinfo-modeluuid}}\",\n                                                \"modelInvariantUuid\": \"{{vnf-vfmodule-1-modelinfo-modelinvariantuuid}}\",\n                                                \"modelVersion\": \"1\",\n                                                \"modelCustomizationId\": \"{{vnf-vfmodule-1-modelinfo-modelcustomizationuuid}}\"\n                                            },\n                                            \"instanceName\": \"{{vnf-vfmodule-1-modelinfo-instancename}}\",\n                                            \"instanceParams\": [\n                                                {\n                                                    \"k8s-rb-profile-name\": \"default\"\n                                                }\n                                            ]\n                                        },\n                                        {\n                                            \"modelInfo\": {\n                                                \"modelName\": \"{{vnf-vfmodule-0-modelinfo-modelname}}\",\n                                                \"modelVersionId\": \"{{vnf-vfmodule-0-modelinfo-modeluuid}}\",\n                                                \"modelInvariantUuid\": \"{{vnf-vfmodule-0-modelinfo-modelinvariantuuid}}\",\n                                                \"modelVersion\": \"1\",\n                                                \"modelCustomizationId\": \"{{vnf-vfmodule-0-modelinfo-modelcustomizationuuid}}\"\n                                            },\n                                            \"instanceName\": \"{{vnf-vfmodule-0-modelinfo-instancename}}\",\n                                            \"instanceParams\": [\n                                                {\n                                                    \"k8s-rb-profile-name\": \"default\"\n                                                }\n                                            ]\n                                        }\n                                    ]\n                                }\n                            ]\n                        },\n                        \"modelInfo\": {\n                            \"modelVersion\": \"{{service-version}}\",\n                            \"modelVersionId\": \"{{service-uuid}}\",\n                            \"modelInvariantId\": \"{{service-invariantUUID}}\",\n                            \"modelName\": \"{{service-name}}\",\n                            \"modelType\": \"service\"\n                        }\n                    }\n                }\n            ],\n            \"aLaCarte\": false\n        },\n        \"project\": {\n            \"projectName\": \"Project-Demonstration\"\n        },\n        \"owningEntity\": {\n            \"owningEntityId\": \"67f2e84c-734d-4e90-a1e4-d2ffa2e75849\",\n            \"owningEntityName\": \"OE-Demonstration\"\n        },\n        \"modelInfo\": {\n            \"modelVersion\": \"{{service-version}}\",\n            \"modelVersionId\": \"{{service-uuid}}\",\n            \"modelInvariantId\": \"{{service-invariantUUID}}\",\n            \"modelName\": \"{{service-name}}\",\n            \"modelType\": \"service\"\n        }\n    }\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "http://{{k8s}}:30277/onap/so/infra/serviceInstantiation/v7/serviceInstances",
+							"protocol": "http",
+							"host": [
+								"{{k8s}}"
+							],
+							"port": "30277",
+							"path": [
+								"onap",
+								"so",
+								"infra",
+								"serviceInstantiation",
+								"v7",
+								"serviceInstances"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4. [SO] Infra Active Requests",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "bpel",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "password1$",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{k8s}}:30277/infraActiveRequests/{{so-request-id}}",
+							"protocol": "http",
+							"host": [
+								"{{k8s}}"
+							],
+							"port": "30277",
+							"path": [
+								"infraActiveRequests",
+								"{{so-request-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5. [SO] Service Delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f1d823e9-27c5-4dd0-bbcb-0903c60ea008",
+								"exec": [
+									"x = pm.response.json();",
+									"pm.environment.set(\"so-request-id\",x.requestReferences.requestId);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "ba69c80c-203d-42c4-87b0-d2b40d41f74e",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "password1$",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "InfraPortalClient",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"requestDetails\": {\n        \"subscriberInfo\": {\n            \"globalSubscriberId\": \"Demonstration\"\n        },\n        \"requestInfo\": {\n            \"suppressRollback\": false,\n            \"productFamilyId\": \"a9a77d5a-123e-4ca2-9eb9-0b015d2ee0fb\",\n            \"requestorId\": \"{{$guid}}\",\n            \"instanceName\": \"{{service-instance-name}}\",\n            \"source\": \"Postman\"\n        },\n        \"cloudConfiguration\": {\n            \"lcpCloudRegionId\": \"k8sregionfour\",\n            \"tenantId\": \"aaaa\",\n            \"cloudOwner\": \"k8scloudowner4\"\n        },\n        \"requestParameters\": {\n            \"subscriptionServiceType\": \"vfwk8s\",\n            \"userParams\": [\n                {\n                    \"Homing_Solution\": \"none\"\n                },\n                {\n                    \"service\": {\n                        \"instanceParams\": [\n                            {}\n                        ],\n                        \"instanceName\": \"{{service-instance-name}}\",\n                        \"resources\": {\n                            \"vnfs\": [\n                                {\n                                    \"modelInfo\": {\n                                        \"modelName\": \"{{vnf-modelinfo-modelname}}\",\n                                        \"modelVersionId\": \"{{vnf-modelinfo-modeluuid}}\",\n                                        \"modelInvariantUuid\": \"{{vnf-modelinfo-modelinvariantuuid}}\",\n                                        \"modelVersion\": \"{{vnf-modelinfo-modelversion}}\",\n                                        \"modelCustomizationId\": \"{{vnf-modelinfo-modelcustomizationuuid}}\",\n                                        \"modelInstanceName\": \"{{vnf-modelinfo-modelinstancename}}\"\n                                    },\n                                    \"cloudConfiguration\": {\n                                        \"lcpCloudRegionId\": \"k8sregionfour\",\n                                        \"tenantId\": \"aaaa\"\n                                    },\n                                    \"platform\": {\n                                        \"platformName\": \"test\"\n                                    },\n                                    \"lineOfBusiness\": {\n                                        \"lineOfBusinessName\": \"LOB-Demonstration\"\n                                    },\n                                    \"productFamilyId\": \"a9a77d5a-123e-4ca2-9eb9-0b015d2ee0fb\",\n                                    \"instanceName\": \"{{vnf-modelinfo-instancename}}\",\n                                    \"instanceParams\": [\n                                        {\n                                            \"k8s-rb-profile-name\": \"default\"\n                                        }\n                                    ],\n                                    \"vfModules\": [\n                                        {\n                                            \"modelInfo\": {\n                                                \"modelName\": \"{{vnf-vfmodule-3-modelinfo-modelname}}\",\n                                                \"modelVersionId\": \"{{vnf-vfmodule-3-modelinfo-modeluuid}}\",\n                                                \"modelInvariantUuid\": \"{{vnf-vfmodule-3-modelinfo-modelinvariantuuid}}\",\n                                                \"modelVersion\": \"1\",\n                                                \"modelCustomizationId\": \"{{vnf-vfmodule-3-modelinfo-modelcustomizationuuid}}\"\n                                            },\n                                            \"instanceName\": \"{{vnf-vfmodule-3-modelinfo-instancename}}\",\n                                            \"instanceParams\": [\n                                                {\n                                                    \"k8s-rb-profile-name\": \"default\"\n                                                }\n                                            ]\n                                        },\n                                        {\n                                            \"modelInfo\": {\n                                                \"modelName\": \"{{vnf-vfmodule-2-modelinfo-modelname}}\",\n                                                \"modelVersionId\": \"{{vnf-vfmodule-2-modelinfo-modeluuid}}\",\n                                                \"modelInvariantUuid\": \"{{vnf-vfmodule-2-modelinfo-modelinvariantuuid}}\",\n                                                \"modelVersion\": \"1\",\n                                                \"modelCustomizationId\": \"{{vnf-vfmodule-2-modelinfo-modelcustomizationuuid}}\"\n                                            },\n                                            \"instanceName\": \"{{vnf-vfmodule-2-modelinfo-instancename}}\",\n                                            \"instanceParams\": [\n                                                {\n                                                    \"k8s-rb-profile-name\": \"default\"\n                                                }\n                                            ]\n                                        },\n                                        {\n                                            \"modelInfo\": {\n                                                \"modelName\": \"{{vnf-vfmodule-1-modelinfo-modelname}}\",\n                                                \"modelVersionId\": \"{{vnf-vfmodule-1-modelinfo-modeluuid}}\",\n                                                \"modelInvariantUuid\": \"{{vnf-vfmodule-1-modelinfo-modelinvariantuuid}}\",\n                                                \"modelVersion\": \"1\",\n                                                \"modelCustomizationId\": \"{{vnf-vfmodule-1-modelinfo-modelcustomizationuuid}}\"\n                                            },\n                                            \"instanceName\": \"{{vnf-vfmodule-1-modelinfo-instancename}}\",\n                                            \"instanceParams\": [\n                                                {\n                                                    \"k8s-rb-profile-name\": \"default\"\n                                                }\n                                            ]\n                                        },\n                                        {\n                                            \"modelInfo\": {\n                                                \"modelName\": \"{{vnf-vfmodule-0-modelinfo-modelname}}\",\n                                                \"modelVersionId\": \"{{vnf-vfmodule-0-modelinfo-modeluuid}}\",\n                                                \"modelInvariantUuid\": \"{{vnf-vfmodule-0-modelinfo-modelinvariantuuid}}\",\n                                                \"modelVersion\": \"1\",\n                                                \"modelCustomizationId\": \"{{vnf-vfmodule-0-modelinfo-modelcustomizationuuid}}\"\n                                            },\n                                            \"instanceName\": \"{{vnf-vfmodule-0-modelinfo-instancename}}\",\n                                            \"instanceParams\": [\n                                                {\n                                                    \"k8s-rb-profile-name\": \"default\"\n                                                }\n                                            ]\n                                        }\n                                    ]\n                                }\n                            ]\n                        },\n                        \"modelInfo\": {\n                            \"modelVersion\": \"{{service-version}}\",\n                            \"modelVersionId\": \"{{service-uuid}}\",\n                            \"modelInvariantId\": \"{{service-invariantUUID}}\",\n                            \"modelName\": \"{{service-name}}\",\n                            \"modelType\": \"service\"\n                        }\n                    }\n                }\n            ],\n            \"aLaCarte\": false\n        },\n        \"project\": {\n            \"projectName\": \"Project-Demonstration\"\n        },\n        \"owningEntity\": {\n            \"owningEntityId\": \"67f2e84c-734d-4e90-a1e4-d2ffa2e75849\",\n            \"owningEntityName\": \"OE-Demonstration\"\n        },\n        \"modelInfo\": {\n            \"modelVersion\": \"{{service-version}}\",\n            \"modelVersionId\": \"{{service-uuid}}\",\n            \"modelInvariantId\": \"{{service-invariantUUID}}\",\n            \"modelName\": \"{{service-name}}\",\n            \"modelType\": \"service\"\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{k8s}}:30277/onap/so/infra/serviceInstantiation/v7/serviceInstances/{{service-instance-id}}",
+							"protocol": "http",
+							"host": [
+								"{{k8s}}"
+							],
+							"port": "30277",
+							"path": [
+								"onap",
+								"so",
+								"infra",
+								"serviceInstantiation",
+								"v7",
+								"serviceInstances",
+								"{{service-instance-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "6. [SO] Self-Serve Service Assign & Activate - Second",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e930fba1-27a4-46f0-8606-0040580a866d",
+								"exec": [
+									"x = pm.response.json();",
+									"pm.environment.set(\"so-request-id\",x.requestReferences.requestId);",
+									"pm.environment.set(\"service-instance-id\",x.requestReferences.instanceId);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "cc173fc2-107d-432b-a2d7-848aab0b3bcd",
+								"exec": [
+									"y = pm.environment.get(\"service-instance-name\").split(\"-\");",
+									"if (!isNaN(y[y.length - 1])) {",
+									"    y[y.length - 1] = (y[y.length - 1] * 1 + 1).toString();",
+									"}",
+									"pm.environment.set(\"service-instance-name\", y.join(\"-\"));",
+									"",
+									"pm.environment.set(\"vnf-modelinfo-instancename\",pm.environment.get(\"service-instance-name\") + \"-vnf\")",
+									"pm.environment.set(\"vnf-vfmodule-0-modelinfo-instancename\",pm.environment.get(\"service-instance-name\") + \"-\" + pm.environment.get(\"vnf-vfmodule-0-label\"))",
+									"pm.environment.set(\"vnf-vfmodule-1-modelinfo-instancename\",pm.environment.get(\"service-instance-name\") + \"-\" + pm.environment.get(\"vnf-vfmodule-1-label\"))",
+									"pm.environment.set(\"vnf-vfmodule-2-modelinfo-instancename\",pm.environment.get(\"service-instance-name\") + \"-\" + pm.environment.get(\"vnf-vfmodule-2-label\"))",
+									"pm.environment.set(\"vnf-vfmodule-3-modelinfo-instancename\",pm.environment.get(\"service-instance-name\") + \"-\" + pm.environment.get(\"vnf-vfmodule-3-label\"))"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "password1$",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "InfraPortalClient",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"requestDetails\": {\n        \"subscriberInfo\": {\n            \"globalSubscriberId\": \"Demonstration\"\n        },\n        \"requestInfo\": {\n            \"suppressRollback\": false,\n            \"productFamilyId\": \"a9a77d5a-123e-4ca2-9eb9-0b015d2ee0fb\",\n            \"requestorId\": \"{{$guid}}\",\n            \"instanceName\": \"{{service-instance-name}}\",\n            \"source\": \"Postman\"\n        },\n        \"cloudConfiguration\": {\n            \"lcpCloudRegionId\": \"k8sregionfour\",\n            \"tenantId\": \"aaaa\",\n            \"cloudOwner\": \"k8scloudowner4\"\n        },\n        \"requestParameters\": {\n            \"subscriptionServiceType\": \"vfwk8s\",\n            \"userParams\": [\n                {\n                    \"Homing_Solution\": \"none\"\n                },\n                {\n                    \"service\": {\n                        \"instanceParams\": [\n                            {}\n                        ],\n                        \"instanceName\": \"{{service-instance-name}}\",\n                        \"resources\": {\n                            \"vnfs\": [\n                                {\n                                    \"modelInfo\": {\n                                        \"modelName\": \"{{vnf-modelinfo-modelname}}\",\n                                        \"modelVersionId\": \"{{vnf-modelinfo-modeluuid}}\",\n                                        \"modelInvariantUuid\": \"{{vnf-modelinfo-modelinvariantuuid}}\",\n                                        \"modelVersion\": \"{{vnf-modelinfo-modelversion}}\",\n                                        \"modelCustomizationId\": \"{{vnf-modelinfo-modelcustomizationuuid}}\",\n                                        \"modelInstanceName\": \"{{vnf-modelinfo-modelinstancename}}\"\n                                    },\n                                    \"cloudConfiguration\": {\n                                        \"lcpCloudRegionId\": \"k8sregionfour\",\n                                        \"tenantId\": \"aaaa\"\n                                    },\n                                    \"platform\": {\n                                        \"platformName\": \"test\"\n                                    },\n                                    \"lineOfBusiness\": {\n                                        \"lineOfBusinessName\": \"LOB-Demonstration\"\n                                    },\n                                    \"productFamilyId\": \"a9a77d5a-123e-4ca2-9eb9-0b015d2ee0fb\",\n                                    \"instanceName\": \"{{vnf-modelinfo-instancename}}\",\n                                    \"instanceParams\": [\n                                        {\n                                        }\n                                    ],\n                                    \"vfModules\": [\n                                        {\n                                            \"modelInfo\": {\n                                                \"modelName\": \"{{vnf-vfmodule-3-modelinfo-modelname}}\",\n                                                \"modelVersionId\": \"{{vnf-vfmodule-3-modelinfo-modeluuid}}\",\n                                                \"modelInvariantUuid\": \"{{vnf-vfmodule-3-modelinfo-modelinvariantuuid}}\",\n                                                \"modelVersion\": \"1\",\n                                                \"modelCustomizationId\": \"{{vnf-vfmodule-3-modelinfo-modelcustomizationuuid}}\"\n                                            },\n                                            \"instanceName\": \"{{vnf-vfmodule-3-modelinfo-instancename}}\",\n                                            \"instanceParams\": [\n                                                {\n                                                }\n                                            ]\n                                        },\n                                        {\n                                            \"modelInfo\": {\n                                                \"modelName\": \"{{vnf-vfmodule-2-modelinfo-modelname}}\",\n                                                \"modelVersionId\": \"{{vnf-vfmodule-2-modelinfo-modeluuid}}\",\n                                                \"modelInvariantUuid\": \"{{vnf-vfmodule-2-modelinfo-modelinvariantuuid}}\",\n                                                \"modelVersion\": \"1\",\n                                                \"modelCustomizationId\": \"{{vnf-vfmodule-2-modelinfo-modelcustomizationuuid}}\"\n                                            },\n                                            \"instanceName\": \"{{vnf-vfmodule-2-modelinfo-instancename}}\",\n                                            \"instanceParams\": [\n                                                {\n                                                    \"vpg-management-port\": \"30000\",\n                                                    \"service.ports.nodePort\": \"31831\",\n                                                }\n                                            ]\n                                        },\n                                        {\n                                            \"modelInfo\": {\n                                                \"modelName\": \"{{vnf-vfmodule-1-modelinfo-modelname}}\",\n                                                \"modelVersionId\": \"{{vnf-vfmodule-1-modelinfo-modeluuid}}\",\n                                                \"modelInvariantUuid\": \"{{vnf-vfmodule-1-modelinfo-modelinvariantuuid}}\",\n                                                \"modelVersion\": \"1\",\n                                                \"modelCustomizationId\": \"{{vnf-vfmodule-1-modelinfo-modelcustomizationuuid}}\"\n                                            },\n                                            \"instanceName\": \"{{vnf-vfmodule-1-modelinfo-instancename}}\",\n                                            \"instanceParams\": [\n                                                {\n                                                    \"service.ports.nodePort\": \"31667\",\n                                                }\n                                            ]\n                                        },\n                                        {\n                                            \"modelInfo\": {\n                                                \"modelName\": \"{{vnf-vfmodule-0-modelinfo-modelname}}\",\n                                                \"modelVersionId\": \"{{vnf-vfmodule-0-modelinfo-modeluuid}}\",\n                                                \"modelInvariantUuid\": \"{{vnf-vfmodule-0-modelinfo-modelinvariantuuid}}\",\n                                                \"modelVersion\": \"1\",\n                                                \"modelCustomizationId\": \"{{vnf-vfmodule-0-modelinfo-modelcustomizationuuid}}\"\n                                            },\n                                            \"instanceName\": \"{{vnf-vfmodule-0-modelinfo-instancename}}\",\n                                            \"instanceParams\": [\n                                                {\n                                                }\n                                            ]\n                                        }\n                                    ]\n                                }\n                            ]\n                        },\n                        \"modelInfo\": {\n                            \"modelVersion\": \"{{service-version}}\",\n                            \"modelVersionId\": \"{{service-uuid}}\",\n                            \"modelInvariantId\": \"{{service-invariantUUID}}\",\n                            \"modelName\": \"{{service-name}}\",\n                            \"modelType\": \"service\"\n                        }\n                    }\n                }\n            ],\n            \"aLaCarte\": false\n        },\n        \"project\": {\n            \"projectName\": \"Project-Demonstration\"\n        },\n        \"owningEntity\": {\n            \"owningEntityId\": \"67f2e84c-734d-4e90-a1e4-d2ffa2e75849\",\n            \"owningEntityName\": \"OE-Demonstration\"\n        },\n        \"modelInfo\": {\n            \"modelVersion\": \"{{service-version}}\",\n            \"modelVersionId\": \"{{service-uuid}}\",\n            \"modelInvariantId\": \"{{service-invariantUUID}}\",\n            \"modelName\": \"{{service-name}}\",\n            \"modelType\": \"service\"\n        }\n    }\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "http://{{k8s}}:30277/onap/so/infra/serviceInstantiation/v7/serviceInstances",
+							"protocol": "http",
+							"host": [
+								"{{k8s}}"
+							],
+							"port": "30277",
+							"path": [
+								"onap",
+								"so",
+								"infra",
+								"serviceInstantiation",
+								"v7",
+								"serviceInstances"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "09383fca-27f7-44f7-9a38-e2f04693015b",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "f7a18420-2d46-4fc9-860a-c2b8e4d29bb3",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Instantiation verification (AAI/SDNC/K8splugin)",
+			"item": [
+				{
+					"name": "[AAI] List Service Instances",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dabd9abf-3f02-46d6-8244-4f576ef90167",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "AAI",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "AAI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-TransactionId",
+								"value": "{{$randomUUID}}"
+							},
+							{
+								"key": "X-FromAppId",
+								"value": "jimmy-postman"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{k8s}}:30233/aai/v16/business/customers/customer/Demonstration/service-subscriptions/service-subscription/vfwk8s/service-instances/",
+							"protocol": "https",
+							"host": [
+								"{{k8s}}"
+							],
+							"port": "30233",
+							"path": [
+								"aai",
+								"v16",
+								"business",
+								"customers",
+								"customer",
+								"Demonstration",
+								"service-subscriptions",
+								"service-subscription",
+								"vfwk8s",
+								"service-instances",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[SDNC] GR-API MD-SAL Services",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "Kp8bJ4SXszM0WXlhak3eHlcse2gAw84vaoGGmJvUy2U",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-TransactionId",
+								"value": "{{$randomUUID}}"
+							},
+							{
+								"key": "X-FromAppId",
+								"value": "jimmy-postman"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{k8s}}:{{sdnc_port}}/restconf/config/GENERIC-RESOURCE-API:services/",
+							"protocol": "https",
+							"host": [
+								"{{k8s}}"
+							],
+							"port": "{{sdnc_port}}",
+							"path": [
+								"restconf",
+								"config",
+								"GENERIC-RESOURCE-API:services",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[AAI] Show Service Instance",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "aa64fa40-a03a-4a34-a550-8abdf2f826c2",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "AAI",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "AAI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-TransactionId",
+								"value": "{{$randomUUID}}"
+							},
+							{
+								"key": "X-FromAppId",
+								"value": "jimmy-postman"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{k8s}}:30233/aai/v16/business/customers/customer/Demonstration/service-subscriptions/service-subscription/vfwk8s/service-instances/service-instance/{{service-instance-id}}",
+							"protocol": "https",
+							"host": [
+								"{{k8s}}"
+							],
+							"port": "30233",
+							"path": [
+								"aai",
+								"v16",
+								"business",
+								"customers",
+								"customer",
+								"Demonstration",
+								"service-subscriptions",
+								"service-subscription",
+								"vfwk8s",
+								"service-instances",
+								"service-instance",
+								"{{service-instance-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[SDNC] GR-API MD-SAL Service",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f09b84d5-2315-49e0-b16d-bdb9a446dccf",
+								"exec": [
+									"service_id = pm.variables.get(\"service-instance-id\");",
+									"response = pm.response.json();",
+									"vnf_id = response.service[0][\"service-data\"].vnfs.vnf[0][\"vnf-id\"];",
+									"console.log(vnf_id)",
+									"pm.environment.set(\"vnf-instance-id\", vnf_id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "Kp8bJ4SXszM0WXlhak3eHlcse2gAw84vaoGGmJvUy2U",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-TransactionId",
+								"value": "{{$randomUUID}}"
+							},
+							{
+								"key": "X-FromAppId",
+								"value": "jimmy-postman"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{k8s}}:{{sdnc_port}}/restconf/config/GENERIC-RESOURCE-API:services/service/{{service-instance-id}}",
+							"protocol": "https",
+							"host": [
+								"{{k8s}}"
+							],
+							"port": "{{sdnc_port}}",
+							"path": [
+								"restconf",
+								"config",
+								"GENERIC-RESOURCE-API:services",
+								"service",
+								"{{service-instance-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[SDNC] GR-API MD-SAL VNFs",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3ee55227-7d18-4405-a268-0ad8b590d0be",
+								"exec": [
+									"x = pm.response.json();",
+									"pm.environment.set(\"cds-vnf-instance-id\",x.vnfs.vnf[0][\"vnf-id\"]);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "Kp8bJ4SXszM0WXlhak3eHlcse2gAw84vaoGGmJvUy2U",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-TransactionId",
+								"value": "{{$randomUUID}}"
+							},
+							{
+								"key": "X-FromAppId",
+								"value": "jimmy-postman"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{k8s}}:{{sdnc_port}}/restconf/config/GENERIC-RESOURCE-API:services/service/{{service-instance-id}}/service-data/vnfs",
+							"protocol": "https",
+							"host": [
+								"{{k8s}}"
+							],
+							"port": "{{sdnc_port}}",
+							"path": [
+								"restconf",
+								"config",
+								"GENERIC-RESOURCE-API:services",
+								"service",
+								"{{service-instance-id}}",
+								"service-data",
+								"vnfs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[AAI] Show VNF Instance",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e6ea90dd-263f-45f6-af7a-69fdf0cf0bce",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "AAI",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "AAI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-TransactionId",
+								"value": "{{$randomUUID}}"
+							},
+							{
+								"key": "X-FromAppId",
+								"value": "jimmy-postman"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{k8s}}:30233/aai/v16/network/generic-vnfs/generic-vnf/{{vnf-instance-id}}",
+							"protocol": "https",
+							"host": [
+								"{{k8s}}"
+							],
+							"port": "30233",
+							"path": [
+								"aai",
+								"v16",
+								"network",
+								"generic-vnfs",
+								"generic-vnf",
+								"{{vnf-instance-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[SDNC] GR-API MD-SAL VNF",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "Kp8bJ4SXszM0WXlhak3eHlcse2gAw84vaoGGmJvUy2U",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-TransactionId",
+								"value": "{{$randomUUID}}"
+							},
+							{
+								"key": "X-FromAppId",
+								"value": "jimmy-postman"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{k8s}}:{{sdnc_port}}/restconf/config/GENERIC-RESOURCE-API:services/service/{{service-instance-id}}/service-data/vnfs/vnf/{{vnf-instance-id}}",
+							"protocol": "https",
+							"host": [
+								"{{k8s}}"
+							],
+							"port": "{{sdnc_port}}",
+							"path": [
+								"restconf",
+								"config",
+								"GENERIC-RESOURCE-API:services",
+								"service",
+								"{{service-instance-id}}",
+								"service-data",
+								"vnfs",
+								"vnf",
+								"{{vnf-instance-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[AAI] List VF-Modules",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "293bb867-0dfc-4f2c-9d7b-e452c950c3ee",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "AAI",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "AAI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-TransactionId",
+								"value": "{{$randomUUID}}"
+							},
+							{
+								"key": "X-FromAppId",
+								"value": "jimmy-postman"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{k8s}}:30233/aai/v16/nodes/generic-vnfs/generic-vnf/{{vnf-instance-id}}/vf-modules",
+							"protocol": "https",
+							"host": [
+								"{{k8s}}"
+							],
+							"port": "30233",
+							"path": [
+								"aai",
+								"v16",
+								"nodes",
+								"generic-vnfs",
+								"generic-vnf",
+								"{{vnf-instance-id}}",
+								"vf-modules"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[AAI] List vServers <Empty>",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0c4cd16a-8221-47b7-ba75-820d1dba1a1b",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "AAI",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "AAI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-TransactionId",
+								"value": "{{$randomUUID}}"
+							},
+							{
+								"key": "X-FromAppId",
+								"value": "jimmy-postman"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{k8s}}:30233/aai/v16/cloud-infrastructure/cloud-regions/cloud-region/k8scloudowner4/k8sregionfour/tenants/tenant/aaaa/vservers",
+							"protocol": "https",
+							"host": [
+								"{{k8s}}"
+							],
+							"port": "30233",
+							"path": [
+								"aai",
+								"v16",
+								"cloud-infrastructure",
+								"cloud-regions",
+								"cloud-region",
+								"k8scloudowner4",
+								"k8sregionfour",
+								"tenants",
+								"tenant",
+								"aaaa",
+								"vservers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[K8splugin] List Instances",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "971d6ebe-3acd-4018-b68f-94a3b5673fa8",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{k8s}}:30283/api/multicloud-k8s/v1/v1/instance",
+							"protocol": "https",
+							"host": [
+								"{{k8s}}"
+							],
+							"port": "30283",
+							"path": [
+								"api",
+								"multicloud-k8s",
+								"v1",
+								"v1",
+								"instance"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
