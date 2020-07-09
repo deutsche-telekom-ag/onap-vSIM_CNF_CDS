@@ -1,4 +1,4 @@
-vf-modules = base_template vpkg vfw vsn
+vf-modules = vsim
 .PHONY: build clean $(vf-modules:=-build) $(vf-modules:-clean) $(vf-modules:=-package)
 
 package: $(vf-modules:=-package)

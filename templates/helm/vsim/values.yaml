@@ -1,0 +1,18 @@
+# Static Defaults
+replicaCount: 1
+image:
+  repository: mtr.external.otc.telekomcloud.com/oran_mob/ntsim_ts28541
+  tag: latest
+  pullPolicy: IfNotPresent
+resources:
+  limits:
+    memory: 1Gi
+
+# Names
+vnf_name: vsim-test-vnf
+vfw_name_0: vsim-test-vnf-vfw
+net_attachment_definition: vfw-net-attach
+# Env variables
+dcae_collector_port: 8080
+dcae_collector_ip: 10.0.4.1 #Placeholder
+demo_artifacts_version: 1.5.0

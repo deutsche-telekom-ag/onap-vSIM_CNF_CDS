@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.vfw_name_0 }}
+  labels:
+    vnf-name: {{ .Values.vnf_name }}
+    vf-module-name: {{ .Values.vfw_name_0 }}
+    release: {{ .Release.Name }}
+    chart: {{ .Chart.Name }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      vnf-name: {{ .Values.vnf_name }}
+      vf-module-name: {{ .Values.vfw_name_0 }}
+  template:
+    metadata:
+      labels:
+        vnf-name: {{ .Values.vnf_name }}
+        vf-module-name: {{ .Values.vfw_name_0 }}
+        release: {{ .Release.Name }}
+        chart: {{ .Chart.Name }}
+      annotations:
+        kubernetes.io/target-runtime: virtlet.cloud
+    spec:
+      selector:
+        matchLabels:
+          app: ntsim
+      replicas: 1
+      template:
+        metadata:
+          labels:
+            app: simulator
+        spec:
+          containers:
+            - name: {{ .Chart.Name }}
+              image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+              imagePullPolicy: {{ .Values.image.pullPolicy }}
+              ports:
+                - containerPort: 830
+        resources:
+          limits:
+            memory: {{ .Values.resources.limits.memory }}
