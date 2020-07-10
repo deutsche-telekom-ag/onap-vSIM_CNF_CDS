@@ -1,8 +1,8 @@
 {
     "tosca_definitions_version": "controller_blueprint_1_0_0",
     "metadata": {
-        "template_author": "Samuli Silvius <s.silvius@partner.samsung.com>",
-        "author-email": "abdelmuhaimen.seaudi@orange.com",
+        "template_author": "Konstantinos Papastergiou  <konstantinos.papastergiou@telekom.de>",
+        "author-email": "konstantinos.papastergiou@telekom.de",
         "user-groups": "ADMIN, OPERATION",
         "template_name": "vSIM_CNF_CDS",
         "template_version": "1.0.0",

@@ -13,6 +13,9 @@ spec:
     matchLabels:
       vnf-name: {{ .Values.vnf_name }}
       vf-module-name: {{ .Values.vfw_name_0 }}
+      release: {{ .Release.Name }}
+      chart: {{ .Chart.Name }}
+      app: ntsim
   template:
     metadata:
       labels:
@@ -20,24 +23,16 @@ spec:
         vf-module-name: {{ .Values.vfw_name_0 }}
         release: {{ .Release.Name }}
         chart: {{ .Chart.Name }}
+        app: ntsim
       annotations:
         kubernetes.io/target-runtime: virtlet.cloud
     spec:
-      selector:
-        matchLabels:
-          app: ntsim
-      replicas: 1
-      template:
-        metadata:
-          labels:
-            app: simulator
-        spec:
-          containers:
-            - name: {{ .Chart.Name }}
-              image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-              imagePullPolicy: {{ .Values.image.pullPolicy }}
-              ports:
-                - containerPort: 830
-        resources:
-          limits:
-            memory: {{ .Values.resources.limits.memory }}
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: 830
+          resources:
+            limits:
+              memory: {{ .Values.resources.limits.memory }}

@@ -1,6 +1,6 @@
 .PHONY: all clean helm base cba clean_all
-ONBOARDING_PACKAGE_NAME ?= vfw_k8s_demo
-CBA_NAME ?= CBA
+ONBOARDING_PACKAGE_NAME ?= vsim_k8s_demo
+CBA_NAME ?= CBA_vsim
 
 clean_all:
 	$(MAKE) clean

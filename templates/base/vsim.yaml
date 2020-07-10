@@ -25,7 +25,7 @@
 
 heat_template_version: 2013-05-23
 
-description: Dummy heat template for vFirewall
+description: Dummy base heat template for vFW usecase
 
 ##############
 #            #
@@ -34,11 +34,10 @@ description: Dummy heat template for vFirewall
 ##############
 
 parameters:
-  vnf_id:
-    type: string
-    label: VNF ID
-    description: The VNF ID is provided by ONAP
   vnf_name:
+    type: string
+    description: VNF_NAME
+  vnf_id:
     type: string
     label: VNF ID
     description: The VNF ID is provided by ONAP
@@ -46,7 +45,6 @@ parameters:
     type: string
     label: VF Module ID
     description: The VF Module ID is provided by ONAP
-
 
 #############
 #           #
@@ -58,9 +56,17 @@ resources:
   dummy:
     type: OS::Heat::None
     properties:
-      vnf_id:
-        get_param: vnf_id
       vnf_name:
         get_param: vnf_name
+      vnf_id:
+        get_param: vnf_id
       vf_module_id:
         get_param: vf_module_id
+
+  #SDC won't allow too dummy resource as it has to find 'topology_template' TOSCA equivalent in heat templates
+  dummy_base:
+    type: OS::Nova::Server
+    properties:
+      name: dummy
+      image: dummy
+      flavor: dummy
