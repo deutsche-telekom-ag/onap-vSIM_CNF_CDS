@@ -3,6 +3,6 @@ CSAR-Version: 1.0
 Created-By: Konstantinos Papastergiou <Konstantinos.Papastergiou@telekom.de>
 Entry-Definitions: Definitions/vSIM_CNF_CDS.json
 Template-Name: vSIM_CNF_CDS
-Template-Version: 1.0.0
+Template-Version: 2.0.0
 Template-Type: DEFAULT
 Template-Tags: Kosta, vSIM_CNF_CDS
