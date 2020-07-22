@@ -9,8 +9,8 @@ resources:
     memory: 1Gi
 
 # Names
-vnf_name: vsim-test-vnf
-vfw_name_0: vsim-test-vnf-vfw
+vnf_name: vsim-test
+vfw_name_0: vsim-test-vnf
 net_attachment_definition: vfw-net-attach
 # Env variables
 dcae_collector_port: 8080

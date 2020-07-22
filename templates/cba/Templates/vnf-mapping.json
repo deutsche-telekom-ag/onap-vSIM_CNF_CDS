@@ -59,7 +59,7 @@
         "property": {
             "description": "Profile name used in multicloud/k8s plugin to identify Helm chart(s) where this mapping is providing override values.",
             "type": "string",
-            "default": "vfw-cnf-cds-base-profile"
+            "default": "vsim-cnf-cds-base-profile"
         },
         "input-param": false,
         "dictionary-name": "k8s-rb-profile-name",
