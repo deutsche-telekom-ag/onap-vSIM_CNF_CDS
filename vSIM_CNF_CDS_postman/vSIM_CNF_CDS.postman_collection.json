@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "ab752443-17d9-419a-85e9-42da71d0288f",
+		"_postman_id": "af1992d4-581a-4afb-86ea-426f7227def7",
 		"name": "vFW_CNF_CDS",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -17,7 +17,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "e884f124-fb26-4ef0-aacd-3eb847a986fd",
+										"id": "78b6e2bc-7c2f-4e23-bc9f-9ad3b0099a18",
 										"exec": [
 											"pm.test(\"Successful PUT request\", function () {",
 											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
@@ -96,7 +96,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "c616490d-5efc-4133-a01d-2cc9bd579f8b",
+										"id": "82624f0f-c274-45f8-a49f-5dda562f468b",
 										"exec": [
 											"pm.test(\"Successful PUT request\", function () {",
 											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
@@ -175,7 +175,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "e8dc60f2-e472-4b91-aa2d-95e62d39838e",
+										"id": "39ab061c-3107-493f-8cc4-e198942c331f",
 										"exec": [
 											"pm.test(\"Successful PUT request\", function () {",
 											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
@@ -254,7 +254,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "a5e48db1-2e55-46aa-8018-df0f8defe90f",
+										"id": "16abb132-354c-4bf7-b764-b8562dd5785e",
 										"exec": [
 											"pm.test(\"Successful PUT request\", function () {",
 											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
@@ -333,7 +333,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "042c22bf-7b3f-42be-8976-d9e6ce720ceb",
+										"id": "964a6d42-1b98-4d6b-812d-33f4892a7a71",
 										"exec": [
 											"pm.test(\"Successful PUT request\", function () {",
 											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
@@ -411,7 +411,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "b94aa07d-051e-450c-9b1c-0cc63a21e761",
+								"id": "9d8e19bd-f7ed-450e-9d70-29cd7c504a3d",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -421,7 +421,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "9a6d9375-7c97-488d-bb95-0404d1518e40",
+								"id": "4f98e6b4-f596-4706-9cf5-2b082ccb8c2b",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -441,7 +441,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "8412434b-2a9e-40b7-94c6-92a76bcba616",
+										"id": "bad6c909-358e-4977-a073-6e64d2fb156d",
 										"exec": [
 											"pm.test(\"Successful GET request\", function () {\r",
 											"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
@@ -592,7 +592,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "fc2a0393-72e9-40f8-8f23-f95a4a21e918",
+										"id": "230fc0c0-f3fc-4b91-9204-4a6d38e0e6c2",
 										"exec": [
 											"pm.test(\"Successful GET request\", function () {\r",
 											"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
@@ -740,7 +740,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "293dba49-3f5e-462c-97d1-c81c6e5b77ca",
+										"id": "5c0e2965-0566-45d5-8b95-274cba06c047",
 										"exec": [
 											"pm.test(\"Successful GET request\", function () {\r",
 											"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
@@ -888,7 +888,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "2c088bc8-642b-4eec-b393-a0678027eb9b",
+										"id": "556e0be3-ec76-468e-b9ee-c42c1935e241",
 										"exec": [
 											"pm.test(\"Successful GET request\", function () {\r",
 											"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
@@ -1036,7 +1036,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "6ec8378c-d4f1-43b8-a3c8-65b46673ebdd",
+										"id": "cab6fdb6-dee1-42a9-89cf-6611a2c9d135",
 										"exec": [
 											"pm.test(\"Successful GET request\", function () {\r",
 											"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
@@ -1109,6 +1109,851 @@
 					],
 					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Delete",
+					"item": [
+						{
+							"name": "Delete Customer",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "4e6e04a2-a86d-44b4-bf58-b08574befa76",
+										"exec": [
+											"pm.test(\"Successful PUT request\", function () {",
+											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "AAI",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "AAI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "X-TransactionId",
+										"value": "{{$randomUUID}}"
+									},
+									{
+										"key": "X-FromAppId",
+										"value": "jimmy-postman"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "\n{\n    \"global-customer-id\": \"Demonstration\",\n    \"subscriber-name\": \"Demonstration\",\n    \"subscriber-type\": \"INFRA\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "https://{{k8s}}:30233/aai/v16/business/customers/customer/kpa_customer?resource-version=1593773239586",
+									"protocol": "https",
+									"host": [
+										"{{k8s}}"
+									],
+									"port": "30233",
+									"path": [
+										"aai",
+										"v16",
+										"business",
+										"customers",
+										"customer",
+										"kpa_customer"
+									],
+									"query": [
+										{
+											"key": "resource-version",
+											"value": "1593773239586"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Owning Entity",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "X-TransactionId",
+										"value": "{{$randomUUID}}",
+										"type": "text"
+									},
+									{
+										"key": "X-FromAppId",
+										"value": "jimmy-postman",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{k8s}}:30233/aai/v16/business/owning-entities/owning-entity/67f2e84c-734d-4e90-a1e4-d2ffa2e75840?resource-version=1594029466909",
+									"protocol": "https",
+									"host": [
+										"{{k8s}}"
+									],
+									"port": "30233",
+									"path": [
+										"aai",
+										"v16",
+										"business",
+										"owning-entities",
+										"owning-entity",
+										"67f2e84c-734d-4e90-a1e4-d2ffa2e75840"
+									],
+									"query": [
+										{
+											"key": "resource-version",
+											"value": "1594029466909"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete  existing platform _auth problem",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "X-TransactionId",
+										"value": "{{$randomUUID}}",
+										"type": "text"
+									},
+									{
+										"key": "X-FromAppId",
+										"value": "jimmy-postman",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{k8s}}:30233/aai/v16/business/platforms/platform/kpaplattform?resource-version=1594029496329",
+									"protocol": "https",
+									"host": [
+										"{{k8s}}"
+									],
+									"port": "30233",
+									"path": [
+										"aai",
+										"v16",
+										"business",
+										"platforms",
+										"platform",
+										"kpaplattform"
+									],
+									"query": [
+										{
+											"key": "resource-version",
+											"value": "1594029496329",
+											"description": "(Required) resource-version for concurrency"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Response codes found in [response codes](https://wiki.web.att.com/pages/viewpage.action?pageId=607391054).",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/business/platforms/platform/:platform-name?resource-version=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"business",
+												"platforms",
+												"platform",
+												":platform-name"
+											],
+											"query": [
+												{
+													"key": "resource-version",
+													"value": "<string>"
+												}
+											],
+											"variable": [
+												{
+													"key": "platform-name"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Delete existing project _auth problem",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "X-TransactionId",
+										"value": "{{$randomUUID}}",
+										"type": "text"
+									},
+									{
+										"key": "X-FromAppId",
+										"value": "jimmy-postman",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{k8s}}:30233/aai/v16/business/projects/project/kostaproject?resource-version=1594044934683",
+									"protocol": "https",
+									"host": [
+										"{{k8s}}"
+									],
+									"port": "30233",
+									"path": [
+										"aai",
+										"v16",
+										"business",
+										"projects",
+										"project",
+										"kostaproject"
+									],
+									"query": [
+										{
+											"key": "resource-version",
+											"value": "1594044934683",
+											"description": "(Required) resource-version for concurrency"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Response codes found in [response codes](https://wiki.web.att.com/pages/viewpage.action?pageId=607391054).",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/business/projects/project/:project-name?resource-version=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"business",
+												"projects",
+												"project",
+												":project-name"
+											],
+											"query": [
+												{
+													"key": "resource-version",
+													"value": "<string>"
+												}
+											],
+											"variable": [
+												{
+													"key": "project-name"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Delete existing line-of-business",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "X-TransactionId",
+										"value": "{{$randomUUID}}",
+										"type": "text"
+									},
+									{
+										"key": "X-FromAppId",
+										"value": "jimmy-postman",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{k8s}}:30233/aai/v16/business/lines-of-business/line-of-business/kosta-lob?resource-version=1594044978129",
+									"protocol": "https",
+									"host": [
+										"{{k8s}}"
+									],
+									"port": "30233",
+									"path": [
+										"aai",
+										"v16",
+										"business",
+										"lines-of-business",
+										"line-of-business",
+										"kosta-lob"
+									],
+									"query": [
+										{
+											"key": "resource-version",
+											"value": "1594044978129",
+											"description": "(Required) resource-version for concurrency"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Response codes found in [response codes](https://wiki.web.att.com/pages/viewpage.action?pageId=607391054).",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/business/lines-of-business/line-of-business/:line-of-business-name?resource-version=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"business",
+												"lines-of-business",
+												"line-of-business",
+												":line-of-business-name"
+											],
+											"query": [
+												{
+													"key": "resource-version",
+													"value": "<string>"
+												}
+											],
+											"variable": [
+												{
+													"key": "line-of-business-name"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Delete Cloud Tenant",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete an existing tenant",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "AAI",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "AAI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "X-TransactionId",
+										"value": "{{$randomUUID}}",
+										"type": "text"
+									},
+									{
+										"key": "X-FromAppId",
+										"value": "jimmy-postman",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{k8s}}:30233/aai/v16/cloud-infrastructure/cloud-regions/cloud-region/k8scloudowner4/k8sregionfour/tenants/tenant/aaaa?resource-version=1594029874977",
+									"protocol": "https",
+									"host": [
+										"{{k8s}}"
+									],
+									"port": "30233",
+									"path": [
+										"aai",
+										"v16",
+										"cloud-infrastructure",
+										"cloud-regions",
+										"cloud-region",
+										"k8scloudowner4",
+										"k8sregionfour",
+										"tenants",
+										"tenant",
+										"aaaa"
+									],
+									"query": [
+										{
+											"key": "resource-version",
+											"value": "1594029874977",
+											"description": "(Required) resource-version for concurrency"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Response codes found in [response codes](https://wiki.web.att.com/pages/viewpage.action?pageId=607391054).",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/cloud-infrastructure/cloud-regions/cloud-region/:cloud-owner/:cloud-region-id/tenants/tenant/:tenant-id?resource-version=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"cloud-infrastructure",
+												"cloud-regions",
+												"cloud-region",
+												":cloud-owner",
+												":cloud-region-id",
+												"tenants",
+												"tenant",
+												":tenant-id"
+											],
+											"query": [
+												{
+													"key": "resource-version",
+													"value": "<string>"
+												}
+											],
+											"variable": [
+												{
+													"key": "cloud-owner"
+												},
+												{
+													"key": "cloud-region-id"
+												},
+												{
+													"key": "tenant-id"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Delete existing cloud-owner",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/cloud-infrastructure/cloud-regions/cloud-region/:cloud-owner/:cloud-region-id?resource-version=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"cloud-infrastructure",
+										"cloud-regions",
+										"cloud-region",
+										":cloud-owner",
+										":cloud-region-id"
+									],
+									"query": [
+										{
+											"key": "resource-version",
+											"value": "<string>",
+											"description": "(Required) resource-version for concurrency"
+										}
+									],
+									"variable": [
+										{
+											"key": "cloud-owner",
+											"value": "<string>",
+											"description": "(Required) Identifies the vendor and cloud name. First part of composite key should be formatted as vendor-cloudname"
+										},
+										{
+											"key": "cloud-region-id",
+											"value": "<string>",
+											"description": "(Required) Identifier used by the vendor for the region. Second part of composite key"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Response codes found in [response codes](https://wiki.web.att.com/pages/viewpage.action?pageId=607391054).",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/cloud-infrastructure/cloud-regions/cloud-region/:cloud-owner/:cloud-region-id?resource-version=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"cloud-infrastructure",
+												"cloud-regions",
+												"cloud-region",
+												":cloud-owner",
+												":cloud-region-id"
+											],
+											"query": [
+												{
+													"key": "resource-version",
+													"value": "<string>"
+												}
+											],
+											"variable": [
+												{
+													"key": "cloud-owner"
+												},
+												{
+													"key": "cloud-region-id"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Delete existing cloud-region",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "AAI",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "AAI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "X-TransactionId",
+										"value": "{{$randomUUID}}",
+										"type": "text"
+									},
+									{
+										"key": "X-FromAppId",
+										"value": "jimmy-postman",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://{{k8s}}:30233/aai/v16//cloud-infrastructure/cloud-regions/cloud-region/kpacloudOwner/kpaRegionOneId?resource-version=1593773515675",
+									"protocol": "https",
+									"host": [
+										"{{k8s}}"
+									],
+									"port": "30233",
+									"path": [
+										"aai",
+										"v16",
+										"",
+										"cloud-infrastructure",
+										"cloud-regions",
+										"cloud-region",
+										"kpacloudOwner",
+										"kpaRegionOneId"
+									],
+									"query": [
+										{
+											"key": "resource-version",
+											"value": "1593773515675",
+											"description": "(Required) resource-version for concurrency"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Response codes found in [response codes](https://wiki.web.att.com/pages/viewpage.action?pageId=607391054).",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/cloud-infrastructure/cloud-regions/cloud-region/:cloud-owner/:cloud-region-id?resource-version=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"cloud-infrastructure",
+												"cloud-regions",
+												"cloud-region",
+												":cloud-owner",
+												":cloud-region-id"
+											],
+											"query": [
+												{
+													"key": "resource-version",
+													"value": "<string>"
+												}
+											],
+											"variable": [
+												{
+													"key": "cloud-owner"
+												},
+												{
+													"key": "cloud-region-id"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Additional",
+					"item": [
+						{
+							"name": "post helm artifact",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "file",
+									"file": {
+										"src": "/Users/kpa/dev/prj/ONAP/code/onap-vSIM_CNF_CDS/templates/package/vsim_cloudtech_k8s_charts.tgz"
+									}
+								},
+								"url": {
+									"raw": "https://{{k8s}}:30283/api/multicloud-k8s/v1/v1/rb/definition/test1-rbdef/v1/content",
+									"protocol": "https",
+									"host": [
+										"{{k8s}}"
+									],
+									"port": "30283",
+									"path": [
+										"api",
+										"multicloud-k8s",
+										"v1",
+										"v1",
+										"rb",
+										"definition",
+										"test1-rbdef",
+										"v1",
+										"content"
+									]
+								},
+								"description": "Post helm artifact"
+							},
+							"response": []
+						},
+						{
+							"name": "instance the helm",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"cloud-region\": \"k8sregionfour\",\n    \"rb-name\": \"355d8f8d-7f5d-4014-addb-1cea2e1423f1\",\n        \"rb-version\": \"a4bebe40-39bd-431a-8811-4b970d3d2bb9\",\n        \"profile-name\": \"default\",\n    \"labels\": {\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{k8s}}:30283/api/multicloud-k8s/v1/v1/instance",
+									"protocol": "https",
+									"host": [
+										"{{k8s}}"
+									],
+									"port": "30283",
+									"path": [
+										"api",
+										"multicloud-k8s",
+										"v1",
+										"v1",
+										"instance"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
 				}
 			],
 			"description": "Actions in this folder relate to steps done by `robot init_customer` excluding cloud registration part. If you already did `robot init_customer`, you don't need to proceed with these calls.",
@@ -1131,7 +1976,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "c0f8bf0a-ad87-4156-b159-19bbf03bb907",
+						"id": "aa98f591-4263-40b5-9e0c-dbc6f5ec3468",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1141,7 +1986,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "f2fd9779-4cd9-46b5-a2ac-7807ac4819ca",
+						"id": "b05df074-57b1-4199-a836-e16ceb8156ad",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1163,7 +2008,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "c7f53387-5639-41c3-939b-619b9bb98984",
+										"id": "c40723f6-88e4-4258-a627-07fdc30e98e2",
 										"exec": [
 											"pm.test(\"Successful PUT request\", function () {",
 											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
@@ -1242,7 +2087,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "caf5a0e6-6c35-4b9c-9a86-da9fb255b208",
+										"id": "f4df09e7-0425-48b6-9830-4101874ec57a",
 										"exec": [
 											"pm.test(\"Successful PUT request\", function () {",
 											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
@@ -1322,7 +2167,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "a5266c9a-a1a3-4347-8338-f0d5592d7106",
+										"id": "32670a9e-e938-431c-8cda-0716ed1634c7",
 										"exec": [
 											"pm.test(\"Successful PUT request\", function () {",
 											"    pm.expect(pm.response.code).to.be.oneOf([200]);",
@@ -1404,7 +2249,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "f80fadae-8482-460c-a2ad-e19470a721bd",
+										"id": "18c5f0f0-7cd0-42df-acf5-ccf5db9f09bc",
 										"exec": [
 											"pm.test(\"Successful PUT request\", function () {",
 											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
@@ -1483,7 +2328,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "19519999-c6bc-4fec-ba11-9f13f737d321",
+										"id": "b5a50aa2-6480-417e-bc3e-c3ab18f98f50",
 										"exec": [
 											"pm.test(\"Successful PUT request\", function () {",
 											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
@@ -1565,7 +2410,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "907bb62c-a70b-4bc1-bcf8-206e4e1da34e",
+										"id": "ef808e9e-db43-4a93-b64d-9bdf7d894483",
 										"exec": [
 											"pm.test(\"Successful PUT request\", function () {",
 											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
@@ -1648,7 +2493,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "60be189c-5ed9-4492-9aec-2d3b154dc195",
+										"id": "9f7696c1-4111-47e0-805a-ec284fbfdc85",
 										"exec": [
 											"pm.test(\"Successful PUT request\", function () {",
 											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
@@ -1731,7 +2576,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "49e1a35c-07e2-4739-a495-c24d3e541925",
+										"id": "0bd62c91-7f2f-4220-aacd-5a046cb8c4ec",
 										"exec": [
 											"pm.test(\"Successful PUT request\", function () {",
 											"    pm.expect(pm.response.code).to.be.oneOf([201]);",
@@ -1765,7 +2610,7 @@
 										{
 											"key": "file",
 											"type": "file",
-											"src": "/C:/Users/k.banka/Desktop/vFW CNF CDS/kubeconfig"
+											"src": "/Users/kpa/dev/prj/ONAP/code/dtag-parent/poc/vFW_CNF_CDS/kubeconfig"
 										}
 									],
 									"options": {
@@ -1875,7 +2720,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "666c309e-2040-4c12-9565-510a6a460508",
+										"id": "ba2044b5-8924-411c-a1e1-c2b178dd90b4",
 										"exec": [
 											"pm.test(\"Successful GET request\", function () {\r",
 											"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
@@ -2026,7 +2871,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "15e71702-91c7-4f23-900b-512e835c37fc",
+										"id": "c7260a59-b395-44e0-be46-0409386da6de",
 										"exec": [
 											"pm.test(\"Successful GET request\", function () {\r",
 											"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
@@ -2177,7 +3022,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "bf05fd0d-e7ed-48d6-aba4-ff172498345d",
+										"id": "40ad07f1-d7f7-4bf1-8251-78ef1f09e06f",
 										"exec": [
 											"pm.test(\"Successful GET request\", function () {\r",
 											"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
@@ -2335,7 +3180,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "6497a905-6a0c-46b1-b5e3-ee18e3217c45",
+										"id": "cbd53f2e-1552-4257-a296-ada7238d9377",
 										"exec": [
 											"pm.test(\"Successful GET request\", function () {\r",
 											"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
@@ -2494,7 +3339,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "fea05e29-a6ed-4cd2-8b7b-0e6c2d4e25ea",
+										"id": "17fb44bc-59d6-44bd-b82a-495e35ea0976",
 										"exec": [
 											"pm.test(\"Successful GET request\", function () {\r",
 											"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
@@ -2644,7 +3489,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "7d64ada7-7c57-4f94-a2b1-0bf9e3e978c7",
+										"id": "c6dffc1e-4433-46a9-9618-90d7772e22e6",
 										"exec": [
 											"pm.test(\"Successful GET request\", function () {\r",
 											"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
@@ -2798,7 +3643,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "b78bac62-e606-4834-b7b5-9f9d9003bfdb",
+										"id": "3c5ca1f3-222e-4d8d-9b05-0ca35899f572",
 										"exec": [
 											"pm.test(\"Successful GET request\", function () {",
 											"    pm.expect(pm.response.code).to.be.oneOf([200]);",
@@ -2846,7 +3691,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "0794f6df-4ff1-4973-9333-89bad0e818e2",
+										"id": "4e1237e6-457c-462e-860c-234b691ec121",
 										"exec": [
 											"pm.test(\"Successful POST request\", function () {",
 											"    pm.expect(pm.response.code).to.be.oneOf([200]);",
@@ -2866,30 +3711,15 @@
 								}
 							],
 							"request": {
-								"auth": {
-									"type": "basic",
-									"basic": [
-										{
-											"key": "password",
-											"value": "password1$",
-											"type": "string"
-										},
-										{
-											"key": "username",
-											"value": "bpel",
-											"type": "string"
-										}
-									]
-								},
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://{{k8s}}:30120/cloudSite/k8sregionfour",
+									"raw": "http://{{k8s}}:30788/cloudSite/k8sregionfour",
 									"protocol": "http",
 									"host": [
 										"{{k8s}}"
 									],
-									"port": "30120",
+									"port": "30788",
 									"path": [
 										"cloudSite",
 										"k8sregionfour"
@@ -2929,11 +3759,11 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{k8s}}:30499/api/v1/blueprint-model",
+							"raw": "{{k8s}}:30788/api/v1/blueprint-model",
 							"host": [
 								"{{k8s}}"
 							],
-							"port": "30499",
+							"port": "30788",
 							"path": [
 								"api",
 								"v1",
@@ -2981,11 +3811,11 @@
 							}
 						],
 						"url": {
-							"raw": "{{k8s}}:30499/api/v1/blueprint-model/download/{{cba_id}}",
+							"raw": "{{k8s}}:30788/api/v1/blueprint-model/download/{{cba_id}}",
 							"host": [
 								"{{k8s}}"
 							],
-							"port": "30499",
+							"port": "30788",
 							"path": [
 								"api",
 								"v1",
@@ -3003,7 +3833,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "e8cc57ec-91d9-408b-83cc-6ee73e79959f",
+								"id": "aaaee700-1a06-4585-9bb6-96be9dd968f5",
 								"exec": [
 									""
 								],
@@ -3048,7 +3878,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "e04d8a97-b489-493d-aef4-2a0519179310",
+								"id": "37bb8e5a-690b-409d-b07f-34d2aa1c88dc",
 								"exec": [
 									"name = pm.variables.get(\"service-name\");",
 									"version = pm.variables.get(\"service-version\");",
@@ -3113,7 +3943,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "3ab5ab18-d73a-4a30-b6ae-c44a07095102",
+								"id": "42e47232-1019-46aa-98a3-d25b9812bdc7",
 								"exec": [
 									"pm.test(\"Successful GET request\", function () {",
 									"    pm.expect(pm.response.code).to.be.oneOf([200]);",
@@ -3170,12 +4000,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://{{k8s}}:30120/ecomp/mso/catalog/v2/serviceVnfs?serviceModelUuid={{service-uuid}}",
+							"raw": "http://{{k8s}}:31740/ecomp/mso/catalog/v2/serviceVnfs?serviceModelUuid={{service-uuid}}",
 							"protocol": "http",
 							"host": [
 								"{{k8s}}"
 							],
-							"port": "30120",
+							"port": "31740",
 							"path": [
 								"ecomp",
 								"mso",
@@ -3199,7 +4029,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "09faf517-798b-4750-b109-3f295d8cd7d9",
+								"id": "0042710c-098e-42da-9218-13a9caad71b9",
 								"exec": [
 									"x = pm.response.json();",
 									"pm.environment.set(\"so-request-id\",x.requestReferences.requestId);",
@@ -3211,7 +4041,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "dda46b57-de29-4836-8cdd-08b433a2e90c",
+								"id": "5bd01b57-e61d-43bd-a1c5-0a11a46b581d",
 								"exec": [
 									"y = pm.environment.get(\"service-instance-name\").split(\"-\");",
 									"if (!isNaN(y[y.length - 1])) {",
@@ -3256,7 +4086,94 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"requestDetails\": {\n        \"subscriberInfo\": {\n            \"globalSubscriberId\": \"Demonstration\"\n        },\n        \"requestInfo\": {\n            \"suppressRollback\": false,\n            \"productFamilyId\": \"a9a77d5a-123e-4ca2-9eb9-0b015d2ee0fb\",\n            \"requestorId\": \"{{$guid}}\",\n            \"instanceName\": \"{{service-instance-name}}\",\n            \"source\": \"Postman\"\n        },\n        \"cloudConfiguration\": {\n            \"lcpCloudRegionId\": \"k8sregionfour\",\n            \"tenantId\": \"aaaa\",\n            \"cloudOwner\": \"k8scloudowner4\"\n        },\n        \"requestParameters\": {\n            \"subscriptionServiceType\": \"vfwk8s\",\n            \"userParams\": [\n                {\n                    \"Homing_Solution\": \"none\"\n                },\n                {\n                    \"service\": {\n                        \"instanceParams\": [\n                            {}\n                        ],\n                        \"instanceName\": \"{{service-instance-name}}\",\n                        \"resources\": {\n                            \"vnfs\": [\n                                {\n                                    \"modelInfo\": {\n                                        \"modelName\": \"{{vnf-modelinfo-modelname}}\",\n                                        \"modelVersionId\": \"{{vnf-modelinfo-modeluuid}}\",\n                                        \"modelInvariantUuid\": \"{{vnf-modelinfo-modelinvariantuuid}}\",\n                                        \"modelVersion\": \"{{vnf-modelinfo-modelversion}}\",\n                                        \"modelCustomizationId\": \"{{vnf-modelinfo-modelcustomizationuuid}}\",\n                                        \"modelInstanceName\": \"{{vnf-modelinfo-modelinstancename}}\"\n                                    },\n                                    \"cloudConfiguration\": {\n                                        \"lcpCloudRegionId\": \"k8sregionfour\",\n                                        \"tenantId\": \"aaaa\"\n                                    },\n                                    \"platform\": {\n                                        \"platformName\": \"test\"\n                                    },\n                                    \"lineOfBusiness\": {\n                                        \"lineOfBusinessName\": \"LOB-Demonstration\"\n                                    },\n                                    \"productFamilyId\": \"a9a77d5a-123e-4ca2-9eb9-0b015d2ee0fb\",\n                                    \"instanceName\": \"{{vnf-modelinfo-instancename}}\",\n                                    \"instanceParams\": [\n                                        {\n                                            \"k8s-rb-profile-name\": \"default\"\n                                        }\n                                    ],\n                                    \"vfModules\": [\n                                        {\n                                            \"modelInfo\": {\n                                                \"modelName\": \"{{vnf-vfmodule-3-modelinfo-modelname}}\",\n                                                \"modelVersionId\": \"{{vnf-vfmodule-3-modelinfo-modeluuid}}\",\n                                                \"modelInvariantUuid\": \"{{vnf-vfmodule-3-modelinfo-modelinvariantuuid}}\",\n                                                \"modelVersion\": \"1\",\n                                                \"modelCustomizationId\": \"{{vnf-vfmodule-3-modelinfo-modelcustomizationuuid}}\"\n                                            },\n                                            \"instanceName\": \"{{vnf-vfmodule-3-modelinfo-instancename}}\",\n                                            \"instanceParams\": [\n                                                {\n                                                    \"k8s-rb-profile-name\": \"default\"\n                                                }\n                                            ]\n                                        },\n                                        {\n                                            \"modelInfo\": {\n                                                \"modelName\": \"{{vnf-vfmodule-2-modelinfo-modelname}}\",\n                                                \"modelVersionId\": \"{{vnf-vfmodule-2-modelinfo-modeluuid}}\",\n                                                \"modelInvariantUuid\": \"{{vnf-vfmodule-2-modelinfo-modelinvariantuuid}}\",\n                                                \"modelVersion\": \"1\",\n                                                \"modelCustomizationId\": \"{{vnf-vfmodule-2-modelinfo-modelcustomizationuuid}}\"\n                                            },\n                                            \"instanceName\": \"{{vnf-vfmodule-2-modelinfo-instancename}}\",\n                                            \"instanceParams\": [\n                                                {\n                                                    \"k8s-rb-profile-name\": \"default\"\n                                                }\n                                            ]\n                                        },\n                                        {\n                                            \"modelInfo\": {\n                                                \"modelName\": \"{{vnf-vfmodule-1-modelinfo-modelname}}\",\n                                                \"modelVersionId\": \"{{vnf-vfmodule-1-modelinfo-modeluuid}}\",\n                                                \"modelInvariantUuid\": \"{{vnf-vfmodule-1-modelinfo-modelinvariantuuid}}\",\n                                                \"modelVersion\": \"1\",\n                                                \"modelCustomizationId\": \"{{vnf-vfmodule-1-modelinfo-modelcustomizationuuid}}\"\n                                            },\n                                            \"instanceName\": \"{{vnf-vfmodule-1-modelinfo-instancename}}\",\n                                            \"instanceParams\": [\n                                                {\n                                                    \"k8s-rb-profile-name\": \"default\"\n                                                }\n                                            ]\n                                        },\n                                        {\n                                            \"modelInfo\": {\n                                                \"modelName\": \"{{vnf-vfmodule-0-modelinfo-modelname}}\",\n                                                \"modelVersionId\": \"{{vnf-vfmodule-0-modelinfo-modeluuid}}\",\n                                                \"modelInvariantUuid\": \"{{vnf-vfmodule-0-modelinfo-modelinvariantuuid}}\",\n                                                \"modelVersion\": \"1\",\n                                                \"modelCustomizationId\": \"{{vnf-vfmodule-0-modelinfo-modelcustomizationuuid}}\"\n                                            },\n                                            \"instanceName\": \"{{vnf-vfmodule-0-modelinfo-instancename}}\",\n                                            \"instanceParams\": [\n                                                {\n                                                    \"k8s-rb-profile-name\": \"default\"\n                                                }\n                                            ]\n                                        }\n                                    ]\n                                }\n                            ]\n                        },\n                        \"modelInfo\": {\n                            \"modelVersion\": \"{{service-version}}\",\n                            \"modelVersionId\": \"{{service-uuid}}\",\n                            \"modelInvariantId\": \"{{service-invariantUUID}}\",\n                            \"modelName\": \"{{service-name}}\",\n                            \"modelType\": \"service\"\n                        }\n                    }\n                }\n            ],\n            \"aLaCarte\": false\n        },\n        \"project\": {\n            \"projectName\": \"Project-Demonstration\"\n        },\n        \"owningEntity\": {\n            \"owningEntityId\": \"67f2e84c-734d-4e90-a1e4-d2ffa2e75849\",\n            \"owningEntityName\": \"OE-Demonstration\"\n        },\n        \"modelInfo\": {\n            \"modelVersion\": \"{{service-version}}\",\n            \"modelVersionId\": \"{{service-uuid}}\",\n            \"modelInvariantId\": \"{{service-invariantUUID}}\",\n            \"modelName\": \"{{service-name}}\",\n            \"modelType\": \"service\"\n        }\n    }\n}",
+							"raw": "{\n    \"requestDetails\": {\n        \"subscriberInfo\": {\n            \"globalSubscriberId\": \"Demonstration\"\n        },\n        \"requestInfo\": {\n            \"suppressRollback\": false,\n            \"productFamilyId\": \"a9a77d5a-123e-4ca2-9eb9-0b015d2ee0fb\",\n            \"requestorId\": \"{{$guid}}\",\n            \"instanceName\": \"{{service-instance-name}}\",\n            \"source\": \"Postman\"\n        },\n        \"cloudConfiguration\": {\n            \"lcpCloudRegionId\": \"k8sregionfour\",\n            \"tenantId\": \"aaaa\",\n            \"cloudOwner\": \"k8scloudowner4\"\n        },\n        \"requestParameters\": {\n            \"subscriptionServiceType\": \"kpa-vfw-service\",\n            \"userParams\": [\n                {\n                    \"Homing_Solution\": \"none\"\n                },\n                {\n                    \"service\": {\n                        \"instanceParams\": [\n                            {}\n                        ],\n                        \"instanceName\": \"{{service-instance-name}}\",\n                        \"resources\": {\n                            \"vnfs\": [\n                                {\n                                    \"modelInfo\": {\n                                        \"modelName\": \"{{vnf-modelinfo-modelname}}\",\n                                        \"modelVersionId\": \"{{vnf-modelinfo-modeluuid}}\",\n                                        \"modelInvariantUuid\": \"{{vnf-modelinfo-modelinvariantuuid}}\",\n                                        \"modelVersion\": \"{{vnf-modelinfo-modelversion}}\",\n                                        \"modelCustomizationId\": \"{{vnf-modelinfo-modelcustomizationuuid}}\",\n                                        \"modelInstanceName\": \"{{vnf-modelinfo-modelinstancename}}\"\n                                    },\n                                    \"cloudConfiguration\": {\n                                        \"lcpCloudRegionId\": \"k8sregionfour\",\n                                        \"tenantId\": \"aaaa\"\n                                    },\n                                    \"platform\": {\n                                        \"platformName\": \"test\"\n                                    },\n                                    \"lineOfBusiness\": {\n                                        \"lineOfBusinessName\": \"LOB-Demonstration\"\n                                    },\n                                    \"productFamilyId\": \"a9a77d5a-123e-4ca2-9eb9-0b015d2ee0fb\",\n                                    \"instanceName\": \"{{vnf-modelinfo-instancename}}\",\n                                    \"instanceParams\": [\n                                        {\n                                            \"k8s-rb-profile-name\": \"default\"\n                                        }\n                                    ],\n                                    \"vfModules\": [\n                                        {\n                                            \"modelInfo\": {\n                                                \"modelName\": \"{{vnf-vfmodule-3-modelinfo-modelname}}\",\n                                                \"modelVersionId\": \"{{vnf-vfmodule-3-modelinfo-modeluuid}}\",\n                                                \"modelInvariantUuid\": \"{{vnf-vfmodule-3-modelinfo-modelinvariantuuid}}\",\n                                                \"modelVersion\": \"1\",\n                                                \"modelCustomizationId\": \"{{vnf-vfmodule-3-modelinfo-modelcustomizationuuid}}\"\n                                            },\n                                            \"instanceName\": \"{{vnf-vfmodule-3-modelinfo-instancename}}\",\n                                            \"instanceParams\": [\n                                                {\n                                                    \"k8s-rb-profile-name\": \"default\"\n                                                }\n                                            ]\n                                        },\n                                        {\n                                            \"modelInfo\": {\n                                                \"modelName\": \"{{vnf-vfmodule-2-modelinfo-modelname}}\",\n                                                \"modelVersionId\": \"{{vnf-vfmodule-2-modelinfo-modeluuid}}\",\n                                                \"modelInvariantUuid\": \"{{vnf-vfmodule-2-modelinfo-modelinvariantuuid}}\",\n                                                \"modelVersion\": \"1\",\n                                                \"modelCustomizationId\": \"{{vnf-vfmodule-2-modelinfo-modelcustomizationuuid}}\"\n                                            },\n                                            \"instanceName\": \"{{vnf-vfmodule-2-modelinfo-instancename}}\",\n                                            \"instanceParams\": [\n                                                {\n                                                    \"k8s-rb-profile-name\": \"default\"\n                                                }\n                                            ]\n                                        },\n                                        {\n                                            \"modelInfo\": {\n                                                \"modelName\": \"{{vnf-vfmodule-1-modelinfo-modelname}}\",\n                                                \"modelVersionId\": \"{{vnf-vfmodule-1-modelinfo-modeluuid}}\",\n                                                \"modelInvariantUuid\": \"{{vnf-vfmodule-1-modelinfo-modelinvariantuuid}}\",\n                                                \"modelVersion\": \"1\",\n                                                \"modelCustomizationId\": \"{{vnf-vfmodule-1-modelinfo-modelcustomizationuuid}}\"\n                                            },\n                                            \"instanceName\": \"{{vnf-vfmodule-1-modelinfo-instancename}}\",\n                                            \"instanceParams\": [\n                                                {\n                                                    \"k8s-rb-profile-name\": \"default\"\n                                                }\n                                            ]\n                                        },\n                                        {\n                                            \"modelInfo\": {\n                                                \"modelName\": \"{{vnf-vfmodule-0-modelinfo-modelname}}\",\n                                                \"modelVersionId\": \"{{vnf-vfmodule-0-modelinfo-modeluuid}}\",\n                                                \"modelInvariantUuid\": \"{{vnf-vfmodule-0-modelinfo-modelinvariantuuid}}\",\n                                                \"modelVersion\": \"1\",\n                                                \"modelCustomizationId\": \"{{vnf-vfmodule-0-modelinfo-modelcustomizationuuid}}\"\n                                            },\n                                            \"instanceName\": \"{{vnf-vfmodule-0-modelinfo-instancename}}\",\n                                            \"instanceParams\": [\n                                                {\n                                                    \"k8s-rb-profile-name\": \"default\"\n                                                }\n                                            ]\n                                        }\n                                    ]\n                                }\n                            ]\n                        },\n                        \"modelInfo\": {\n                            \"modelVersion\": \"{{service-version}}\",\n                            \"modelVersionId\": \"{{service-uuid}}\",\n                            \"modelInvariantId\": \"{{service-invariantUUID}}\",\n                            \"modelName\": \"{{service-name}}\",\n                            \"modelType\": \"service\"\n                        }\n                    }\n                }\n            ],\n            \"aLaCarte\": false\n        },\n        \"project\": {\n            \"projectName\": \"Project-Demonstration\"\n        },\n        \"owningEntity\": {\n            \"owningEntityId\": \"19c57bb4-7181-4b79-81b6-aaf2506d0b13\",\n            \"owningEntityName\": \"OE-Demonstration\"\n        },\n        \"modelInfo\": {\n            \"modelVersion\": \"{{service-version}}\",\n            \"modelVersionId\": \"{{service-uuid}}\",\n            \"modelInvariantId\": \"{{service-invariantUUID}}\",\n            \"modelName\": \"{{service-name}}\",\n            \"modelType\": \"service\"\n        }\n    }\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "http://{{k8s}}:30277/onap/so/infra/serviceInstantiation/v7/serviceInstances",
+							"protocol": "http",
+							"host": [
+								"{{k8s}}"
+							],
+							"port": "30277",
+							"path": [
+								"onap",
+								"so",
+								"infra",
+								"serviceInstantiation",
+								"v7",
+								"serviceInstances"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3. [SO] Self-Serve Service Assign & Activate for only 1 VNF",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d0291bc3-f70e-42b5-8901-11ad9863326f",
+								"exec": [
+									"x = pm.response.json();",
+									"pm.environment.set(\"so-request-id\",x.requestReferences.requestId);",
+									"pm.environment.set(\"service-instance-id\",x.requestReferences.instanceId);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "e43f1370-ea39-401a-a8df-b3c0fb6f485f",
+								"exec": [
+									"y = pm.environment.get(\"service-instance-name\").split(\"-\");",
+									"if (!isNaN(y[y.length - 1])) {",
+									"    y[y.length - 1] = (y[y.length - 1] * 1 + 1).toString();",
+									"}",
+									"pm.environment.set(\"service-instance-name\", y.join(\"-\"));",
+									"",
+									"pm.environment.set(\"vnf-modelinfo-instancename\",pm.environment.get(\"service-instance-name\") + \"-vnf\")",
+									"pm.environment.set(\"vnf-vfmodule-0-modelinfo-instancename\",pm.environment.get(\"service-instance-name\") + \"-\" + pm.environment.get(\"vnf-vfmodule-0-label\"))",
+									"pm.environment.set(\"vnf-vfmodule-1-modelinfo-instancename\",pm.environment.get(\"service-instance-name\") + \"-\" + pm.environment.get(\"vnf-vfmodule-1-label\"))",
+									"pm.environment.set(\"vnf-vfmodule-2-modelinfo-instancename\",pm.environment.get(\"service-instance-name\") + \"-\" + pm.environment.get(\"vnf-vfmodule-2-label\"))",
+									"pm.environment.set(\"vnf-vfmodule-3-modelinfo-instancename\",pm.environment.get(\"service-instance-name\") + \"-\" + pm.environment.get(\"vnf-vfmodule-3-label\"))"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "password1$",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "InfraPortalClient",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"requestDetails\": {\n        \"subscriberInfo\": {\n            \"globalSubscriberId\": \"Demonstration\"\n        },\n        \"requestInfo\": {\n            \"suppressRollback\": false,\n            \"productFamilyId\": \"a9a77d5a-123e-4ca2-9eb9-0b015d2ee0fb\",\n            \"requestorId\": \"{{$guid}}\",\n            \"instanceName\": \"{{service-instance-name}}\",\n            \"source\": \"Postman\"\n        },\n        \"cloudConfiguration\": {\n            \"lcpCloudRegionId\": \"k8sregionfour\",\n            \"tenantId\": \"aaaa\",\n            \"cloudOwner\": \"k8scloudowner4\"\n        },\n        \"requestParameters\": {\n            \"subscriptionServiceType\": \"kpa-vfw-service\",\n            \"userParams\": [\n                {\n                    \"Homing_Solution\": \"none\"\n                },\n                {\n                    \"service\": {\n                        \"instanceParams\": [\n                            {}\n                        ],\n                        \"instanceName\": \"{{service-instance-name}}\",\n                        \"resources\": {\n                            \"vnfs\": [\n                                {\n                                    \"modelInfo\": {\n                                        \"modelName\": \"{{vnf-modelinfo-modelname}}\",\n                                        \"modelVersionId\": \"{{vnf-modelinfo-modeluuid}}\",\n                                        \"modelInvariantUuid\": \"{{vnf-modelinfo-modelinvariantuuid}}\",\n                                        \"modelVersion\": \"{{vnf-modelinfo-modelversion}}\",\n                                        \"modelCustomizationId\": \"{{vnf-modelinfo-modelcustomizationuuid}}\",\n                                        \"modelInstanceName\": \"{{vnf-modelinfo-modelinstancename}}\"\n                                    },\n                                    \"cloudConfiguration\": {\n                                        \"lcpCloudRegionId\": \"k8sregionfour\",\n                                        \"tenantId\": \"aaaa\"\n                                    },\n                                    \"platform\": {\n                                        \"platformName\": \"test\"\n                                    },\n                                    \"lineOfBusiness\": {\n                                        \"lineOfBusinessName\": \"LOB-Demonstration\"\n                                    },\n                                    \"productFamilyId\": \"a9a77d5a-123e-4ca2-9eb9-0b015d2ee0fb\",\n                                    \"instanceName\": \"{{vnf-modelinfo-instancename}}\",\n                                    \"instanceParams\": [\n                                        {\n                                            \"k8s-rb-profile-name\": \"default\"\n                                        }\n                                    ],\n                                    \"vfModules\": [\n                                        {\n                                            \"modelInfo\": {\n                                                \"modelName\": \"{{vnf-vfmodule-3-modelinfo-modelname}}\",\n                                                \"modelVersionId\": \"{{vnf-vfmodule-3-modelinfo-modeluuid}}\",\n                                                \"modelInvariantUuid\": \"{{vnf-vfmodule-3-modelinfo-modelinvariantuuid}}\",\n                                                \"modelVersion\": \"1\",\n                                                \"modelCustomizationId\": \"{{vnf-vfmodule-3-modelinfo-modelcustomizationuuid}}\"\n                                            },\n                                            \"instanceName\": \"{{vnf-vfmodule-3-modelinfo-instancename}}\",\n                                            \"instanceParams\": [\n                                                {\n                                                    \"k8s-rb-profile-name\": \"default\"\n                                                }\n                                            ]\n                                        },\n                                        {\n                                            \"modelInfo\": {\n                                                \"modelName\": \"{{vnf-vfmodule-2-modelinfo-modelname}}\",\n                                                \"modelVersionId\": \"{{vnf-vfmodule-2-modelinfo-modeluuid}}\",\n                                                \"modelInvariantUuid\": \"{{vnf-vfmodule-2-modelinfo-modelinvariantuuid}}\",\n                                                \"modelVersion\": \"1\",\n                                                \"modelCustomizationId\": \"{{vnf-vfmodule-2-modelinfo-modelcustomizationuuid}}\"\n                                            },\n                                            \"instanceName\": \"{{vnf-vfmodule-2-modelinfo-instancename}}\",\n                                            \"instanceParams\": [\n                                                {\n                                                    \"k8s-rb-profile-name\": \"default\"\n                                                }\n                                            ]\n                                        },\n                                        {\n                                            \"modelInfo\": {\n                                                \"modelName\": \"{{vnf-vfmodule-1-modelinfo-modelname}}\",\n                                                \"modelVersionId\": \"{{vnf-vfmodule-1-modelinfo-modeluuid}}\",\n                                                \"modelInvariantUuid\": \"{{vnf-vfmodule-1-modelinfo-modelinvariantuuid}}\",\n                                                \"modelVersion\": \"1\",\n                                                \"modelCustomizationId\": \"{{vnf-vfmodule-1-modelinfo-modelcustomizationuuid}}\"\n                                            },\n                                            \"instanceName\": \"{{vnf-vfmodule-1-modelinfo-instancename}}\",\n                                            \"instanceParams\": [\n                                                {\n                                                    \"k8s-rb-profile-name\": \"default\"\n                                                }\n                                            ]\n                                        },\n                                        {\n                                            \"modelInfo\": {\n                                                \"modelName\": \"{{vnf-vfmodule-0-modelinfo-modelname}}\",\n                                                \"modelVersionId\": \"{{vnf-vfmodule-0-modelinfo-modeluuid}}\",\n                                                \"modelInvariantUuid\": \"{{vnf-vfmodule-0-modelinfo-modelinvariantuuid}}\",\n                                                \"modelVersion\": \"1\",\n                                                \"modelCustomizationId\": \"{{vnf-vfmodule-0-modelinfo-modelcustomizationuuid}}\"\n                                            },\n                                            \"instanceName\": \"{{vnf-vfmodule-0-modelinfo-instancename}}\",\n                                            \"instanceParams\": [\n                                                {\n                                                    \"k8s-rb-profile-name\": \"default\"\n                                                }\n                                            ]\n                                        }\n                                    ]\n                                }\n                            ]\n                        },\n                        \"modelInfo\": {\n                            \"modelVersion\": \"{{service-version}}\",\n                            \"modelVersionId\": \"{{service-uuid}}\",\n                            \"modelInvariantId\": \"{{service-invariantUUID}}\",\n                            \"modelName\": \"{{service-name}}\",\n                            \"modelType\": \"service\"\n                        }\n                    }\n                }\n            ],\n            \"aLaCarte\": false\n        },\n        \"project\": {\n            \"projectName\": \"Project-Demonstration\"\n        },\n        \"owningEntity\": {\n            \"owningEntityId\": \"19c57bb4-7181-4b79-81b6-aaf2506d0b13\",\n            \"owningEntityName\": \"OE-Demonstration\"\n        },\n        \"modelInfo\": {\n            \"modelVersion\": \"{{service-version}}\",\n            \"modelVersionId\": \"{{service-uuid}}\",\n            \"modelInvariantId\": \"{{service-invariantUUID}}\",\n            \"modelName\": \"{{service-name}}\",\n            \"modelType\": \"service\"\n        }\n    }\n}",
 							"options": {
 								"raw": {}
 							}
@@ -3321,7 +4238,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "f1d823e9-27c5-4dd0-bbcb-0903c60ea008",
+								"id": "503aa84d-8d90-438b-9dde-68117b853001",
 								"exec": [
 									"x = pm.response.json();",
 									"pm.environment.set(\"so-request-id\",x.requestReferences.requestId);"
@@ -3332,7 +4249,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "ba69c80c-203d-42c4-87b0-d2b40d41f74e",
+								"id": "f74e4044-6d55-4021-9318-fafd97975cba",
 								"exec": [
 									""
 								],
@@ -3393,7 +4310,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "e930fba1-27a4-46f0-8606-0040580a866d",
+								"id": "da7e8f53-11ec-4a83-89cb-204827207e0f",
 								"exec": [
 									"x = pm.response.json();",
 									"pm.environment.set(\"so-request-id\",x.requestReferences.requestId);",
@@ -3405,7 +4322,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "cc173fc2-107d-432b-a2d7-848aab0b3bcd",
+								"id": "3dd80c12-9772-4534-a744-a949d9edb6c8",
 								"exec": [
 									"y = pm.environment.get(\"service-instance-name\").split(\"-\");",
 									"if (!isNaN(y[y.length - 1])) {",
@@ -3479,7 +4396,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "09383fca-27f7-44f7-9a38-e2f04693015b",
+						"id": "fc5d693c-c485-4e4e-bbaa-682fd58709fd",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -3489,7 +4406,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "f7a18420-2d46-4fc9-860a-c2b8e4d29bb3",
+						"id": "19bde070-d566-43b1-b58b-88f1b793b843",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -3508,7 +4425,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "dabd9abf-3f02-46d6-8244-4f576ef90167",
+								"id": "d6ecdd77-1bff-4bbc-9c38-0964df32f958",
 								"exec": [
 									""
 								],
@@ -3637,7 +4554,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "aa64fa40-a03a-4a34-a550-8abdf2f826c2",
+								"id": "a8662275-b3ca-4c5b-8ce3-90ae7ee68fc1",
 								"exec": [
 									""
 								],
@@ -3713,7 +4630,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "f09b84d5-2315-49e0-b16d-bdb9a446dccf",
+								"id": "03e13a1b-c72e-4f9b-8ca3-b11ba4467007",
 								"exec": [
 									"service_id = pm.variables.get(\"service-instance-id\");",
 									"response = pm.response.json();",
@@ -3784,7 +4701,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "3ee55227-7d18-4405-a268-0ad8b590d0be",
+								"id": "f7e6cef9-7450-4bde-8708-588b6a37ee6e",
 								"exec": [
 									"x = pm.response.json();",
 									"pm.environment.set(\"cds-vnf-instance-id\",x.vnfs.vnf[0][\"vnf-id\"]);",
@@ -3855,7 +4772,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "e6ea90dd-263f-45f6-af7a-69fdf0cf0bce",
+								"id": "08172c27-9893-4469-9c45-00982233afce",
 								"exec": [
 									""
 								],
@@ -3984,7 +4901,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "293bb867-0dfc-4f2c-9d7b-e452c950c3ee",
+								"id": "911b5399-7f59-4b1d-8a46-cceede87972a",
 								"exec": [
 									""
 								],
@@ -4055,7 +4972,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "0c4cd16a-8221-47b7-ba75-820d1dba1a1b",
+								"id": "735b0d65-0a83-418e-9de9-5d9484d93562",
 								"exec": [
 									""
 								],
@@ -4130,7 +5047,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "971d6ebe-3acd-4018-b68f-94a3b5673fa8",
+								"id": "fc1c020b-457a-466d-96e5-88fb7dae4e55",
 								"exec": [
 									""
 								],

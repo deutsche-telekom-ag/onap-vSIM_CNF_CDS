@@ -1,0 +1,300 @@
+{
+	"info": {
+		"_postman_id": "af1992d4-581a-4afb-86ea-426f7227def7",
+		"name": "vSIM_CNF_CDS_lcm",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+
+		{
+			"name": "LCM (SDC/SO)",
+			"item": [
+				{
+					"name": "1. [SDC] Catalog Service",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "37bb8e5a-690b-409d-b07f-34d2aa1c88dc",
+								"exec": [
+									"name = pm.variables.get(\"service-name\");",
+									"version = pm.variables.get(\"service-version\");",
+									"console.log(\"Lookup service mode in SDC Catalog: {\" + name + \":\" + version + \"}\");",
+									"ee = _.find(pm.response.json(),{\"name\": name, \"version\": version});",
+									"",
+									"pm.test(\"Find defined service in SDC catalog\", function () {",
+									"    pm.expect(ee).not.to.be.undefined;",
+									"});",
+									"",
+									"pm.environment.set(\"service-uuid\",ee.uuid);",
+									"pm.environment.set(\"service-invariantUUID\",ee.invariantUUID);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "vid",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "Kp8bJ4SXszM0WXlhak3eHlcse2gAw84vaoGGmJvUy2U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-ECOMP-InstanceID",
+								"value": "VID",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{k8s}}:30204/sdc/v1/catalog/services",
+							"protocol": "https",
+							"host": [
+								"{{k8s}}"
+							],
+							"port": "30204",
+							"path": [
+								"sdc",
+								"v1",
+								"catalog",
+								"services"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2. [SO] Catalog DB Service xNFs",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "42e47232-1019-46aa-98a3-d25b9812bdc7",
+								"exec": [
+									"pm.test(\"Successful GET request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+									"});",
+									"",
+									"x = pm.response.json();",
+									"//console.log(x)",
+									"pm.environment.set(\"vnf-modelinfo-modelname\", x.serviceVnfs[0].modelInfo.modelName);",
+									"pm.environment.set(\"vnf-modelinfo-modelversion\", x.serviceVnfs[0].modelInfo.modelVersion);",
+									"pm.environment.set(\"vnf-modelinfo-modeluuid\", x.serviceVnfs[0].modelInfo.modelUuid);",
+									"pm.environment.set(\"vnf-modelinfo-modelinvariantuuid\", x.serviceVnfs[0].modelInfo.modelInvariantUuid);",
+									"pm.environment.set(\"vnf-modelinfo-modelcustomizationuuid\", x.serviceVnfs[0].modelInfo.modelCustomizationUuid);",
+									"pm.environment.set(\"vnf-modelinfo-modelinstancename\", x.serviceVnfs[0].modelInfo.modelInstanceName);",
+									"pm.environment.set(\"vnf-vfmodule-0-modelinfo-modelname\", x.serviceVnfs[0].vfModules[0].modelInfo.modelName);",
+									"pm.environment.set(\"vnf-vfmodule-0-modelinfo-modeluuid\", x.serviceVnfs[0].vfModules[0].modelInfo.modelUuid);",
+									"pm.environment.set(\"vnf-vfmodule-0-modelinfo-modelinvariantuuid\", x.serviceVnfs[0].vfModules[0].modelInfo.modelInvariantUuid);",
+									"pm.environment.set(\"vnf-vfmodule-0-modelinfo-modelcustomizationuuid\", x.serviceVnfs[0].vfModules[0].modelInfo.modelCustomizationUuid);",
+									"pm.environment.set(\"vnf-vfmodule-0-label\", x.serviceVnfs[0].vfModules[0].vfModuleLabel);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "password1$",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "bpel",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{k8s}}:31740/ecomp/mso/catalog/v2/serviceVnfs?serviceModelUuid={{service-uuid}}",
+							"protocol": "http",
+							"host": [
+								"{{k8s}}"
+							],
+							"port": "31740",
+							"path": [
+								"ecomp",
+								"mso",
+								"catalog",
+								"v2",
+								"serviceVnfs"
+							],
+							"query": [
+								{
+									"key": "serviceModelUuid",
+									"value": "{{service-uuid}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3. [SO] Self-Serve Service Assign & Activate for only 1 VNF",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d0291bc3-f70e-42b5-8901-11ad9863326f",
+								"exec": [
+									"x = pm.response.json();",
+									"console.log(x);",
+									"pm.environment.set(\"so-request-id\",x.requestReferences.requestId);",
+									"pm.environment.set(\"service-instance-id\",x.requestReferences.instanceId);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "e43f1370-ea39-401a-a8df-b3c0fb6f485f",
+								"exec": [
+									"y = pm.environment.get(\"service-instance-name\").split(\"-\");",
+									"if (!isNaN(y[y.length - 1])) {",
+									"    d=new Date()",
+									"    y[y.length - 1] = d.getFullYear().toString()+((d.getMonth()+1).toString().length==2?(d.getMonth()+1).toString():\"0\"+(d.getMonth()+1).toString())+(d.getDate().toString().length==2?d.getDate().toString():\"0\"+d.getDate().toString())+\"-\"+(d.getHours().toString().length==2?d.getHours().toString():\"0\"+d.getHours().toString())+((parseInt(d.getMinutes()/5)*5).toString().length==2?(parseInt(d.getMinutes()/5)*5).toString():\"0\"+(parseInt(d.getMinutes()/5)*5).toString())",
+									"}",
+									"pm.environment.set(\"service-instance-name\", y.join(\"-\"));",
+									"",
+									"pm.environment.set(\"vnf-modelinfo-instancename\",pm.environment.get(\"service-instance-name\") + \"-vnf\")",
+									"pm.environment.set(\"vnf-vfmodule-0-modelinfo-instancename\",pm.environment.get(\"service-instance-name\") + \"-\" + pm.environment.get(\"vnf-vfmodule-0-label\"))"
+
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "password1$",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "InfraPortalClient",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"requestDetails\": {\n        \"subscriberInfo\": {\n            \"globalSubscriberId\": \"Demonstration\"\n        },\n        \"requestInfo\": {\n            \"suppressRollback\": false,\n            \"productFamilyId\": \"a9a77d5a-123e-4ca2-9eb9-0b015d2ee0fb\",\n            \"requestorId\": \"{{$guid}}\",\n            \"instanceName\": \"{{service-instance-name}}\",\n            \"source\": \"Postman\"\n        },\n        \"cloudConfiguration\": {\n            \"lcpCloudRegionId\": \"k8sregionfour\",\n            \"tenantId\": \"aaaa\",\n            \"cloudOwner\": \"k8scloudowner4\"\n        },\n        \"requestParameters\": {\n            \"subscriptionServiceType\": \"kpa-vfw-service\",\n            \"userParams\": [\n                {\n                    \"Homing_Solution\": \"none\"\n                },\n                {\n                    \"service\": {\n                        \"instanceParams\": [\n                            {}\n                        ],\n                        \"instanceName\": \"{{service-instance-name}}\",\n                        \"resources\": {\n                            \"vnfs\": [\n                                {\n                                    \"modelInfo\": {\n                                        \"modelName\": \"{{vnf-modelinfo-modelname}}\",\n                                        \"modelVersionId\": \"{{vnf-modelinfo-modeluuid}}\",\n                                        \"modelInvariantUuid\": \"{{vnf-modelinfo-modelinvariantuuid}}\",\n                                        \"modelVersion\": \"{{vnf-modelinfo-modelversion}}\",\n                                        \"modelCustomizationId\": \"{{vnf-modelinfo-modelcustomizationuuid}}\",\n                                        \"modelInstanceName\": \"{{vnf-modelinfo-modelinstancename}}\"\n                                    },\n                                    \"cloudConfiguration\": {\n                                        \"lcpCloudRegionId\": \"k8sregionfour\",\n                                        \"tenantId\": \"aaaa\"\n                                    },\n                                    \"platform\": {\n                                        \"platformName\": \"test\"\n                                    },\n                                    \"lineOfBusiness\": {\n                                        \"lineOfBusinessName\": \"LOB-Demonstration\"\n                                    },\n                                    \"productFamilyId\": \"a9a77d5a-123e-4ca2-9eb9-0b015d2ee0fb\",\n                                    \"instanceName\": \"{{vnf-modelinfo-instancename}}\",\n                                    \"instanceParams\": [\n                                        {\n                                            \"k8s-rb-profile-name\": \"default\"\n                                        }\n                                    ],\n                                    \"vfModules\": [\n                                        {\n                                            \"modelInfo\": {\n                                                \"modelName\": \"{{vnf-vfmodule-3-modelinfo-modelname}}\",\n                                                \"modelVersionId\": \"{{vnf-vfmodule-3-modelinfo-modeluuid}}\",\n                                                \"modelInvariantUuid\": \"{{vnf-vfmodule-3-modelinfo-modelinvariantuuid}}\",\n                                                \"modelVersion\": \"1\",\n                                                \"modelCustomizationId\": \"{{vnf-vfmodule-3-modelinfo-modelcustomizationuuid}}\"\n                                            },\n                                            \"instanceName\": \"{{vnf-vfmodule-3-modelinfo-instancename}}\",\n                                            \"instanceParams\": [\n                                                {\n                                                    \"k8s-rb-profile-name\": \"default\"\n                                                }\n                                            ]\n                                        },\n                                        {\n                                            \"modelInfo\": {\n                                                \"modelName\": \"{{vnf-vfmodule-2-modelinfo-modelname}}\",\n                                                \"modelVersionId\": \"{{vnf-vfmodule-2-modelinfo-modeluuid}}\",\n                                                \"modelInvariantUuid\": \"{{vnf-vfmodule-2-modelinfo-modelinvariantuuid}}\",\n                                                \"modelVersion\": \"1\",\n                                                \"modelCustomizationId\": \"{{vnf-vfmodule-2-modelinfo-modelcustomizationuuid}}\"\n                                            },\n                                            \"instanceName\": \"{{vnf-vfmodule-2-modelinfo-instancename}}\",\n                                            \"instanceParams\": [\n                                                {\n                                                    \"k8s-rb-profile-name\": \"default\"\n                                                }\n                                            ]\n                                        },\n                                        {\n                                            \"modelInfo\": {\n                                                \"modelName\": \"{{vnf-vfmodule-1-modelinfo-modelname}}\",\n                                                \"modelVersionId\": \"{{vnf-vfmodule-1-modelinfo-modeluuid}}\",\n                                                \"modelInvariantUuid\": \"{{vnf-vfmodule-1-modelinfo-modelinvariantuuid}}\",\n                                                \"modelVersion\": \"1\",\n                                                \"modelCustomizationId\": \"{{vnf-vfmodule-1-modelinfo-modelcustomizationuuid}}\"\n                                            },\n                                            \"instanceName\": \"{{vnf-vfmodule-1-modelinfo-instancename}}\",\n                                            \"instanceParams\": [\n                                                {\n                                                    \"k8s-rb-profile-name\": \"default\"\n                                                }\n                                            ]\n                                        },\n                                        {\n                                            \"modelInfo\": {\n                                                \"modelName\": \"{{vnf-vfmodule-0-modelinfo-modelname}}\",\n                                                \"modelVersionId\": \"{{vnf-vfmodule-0-modelinfo-modeluuid}}\",\n                                                \"modelInvariantUuid\": \"{{vnf-vfmodule-0-modelinfo-modelinvariantuuid}}\",\n                                                \"modelVersion\": \"1\",\n                                                \"modelCustomizationId\": \"{{vnf-vfmodule-0-modelinfo-modelcustomizationuuid}}\"\n                                            },\n                                            \"instanceName\": \"{{vnf-vfmodule-0-modelinfo-instancename}}\",\n                                            \"instanceParams\": [\n                                                {\n                                                    \"k8s-rb-profile-name\": \"default\"\n                                                }\n                                            ]\n                                        }\n                                    ]\n                                }\n                            ]\n                        },\n                        \"modelInfo\": {\n                            \"modelVersion\": \"{{service-version}}\",\n                            \"modelVersionId\": \"{{service-uuid}}\",\n                            \"modelInvariantId\": \"{{service-invariantUUID}}\",\n                            \"modelName\": \"{{service-name}}\",\n                            \"modelType\": \"service\"\n                        }\n                    }\n                }\n            ],\n            \"aLaCarte\": false\n        },\n        \"project\": {\n            \"projectName\": \"Project-Demonstration\"\n        },\n        \"owningEntity\": {\n            \"owningEntityId\": \"19c57bb4-7181-4b79-81b6-aaf2506d0b13\",\n            \"owningEntityName\": \"OE-Demonstration\"\n        },\n        \"modelInfo\": {\n            \"modelVersion\": \"{{service-version}}\",\n            \"modelVersionId\": \"{{service-uuid}}\",\n            \"modelInvariantId\": \"{{service-invariantUUID}}\",\n            \"modelName\": \"{{service-name}}\",\n            \"modelType\": \"service\"\n        }\n    }\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "http://{{k8s}}:30277/onap/so/infra/serviceInstantiation/v7/serviceInstances",
+							"protocol": "http",
+							"host": [
+								"{{k8s}}"
+							],
+							"port": "30277",
+							"path": [
+								"onap",
+								"so",
+								"infra",
+								"serviceInstantiation",
+								"v7",
+								"serviceInstances"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4. [SO] Infra Active Requests",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "bpel",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "password1$",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{k8s}}:30277/infraActiveRequests/{{so-request-id}}",
+							"protocol": "http",
+							"host": [
+								"{{k8s}}"
+							],
+							"port": "30277",
+							"path": [
+								"infraActiveRequests",
+								"{{so-request-id}}"
+							]
+						}
+					},
+					"response": []
+				}
+
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "fc5d693c-c485-4e4e-bbaa-682fd58709fd",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "19bde070-d566-43b1-b58b-88f1b793b843",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+
+	],
+	"protocolProfileBehavior": {}
+}
